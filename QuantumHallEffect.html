@@ -56,6 +56,7 @@
 
 
 
+
 								<header class="major">
 									<h1>Integer
 									Quantum
@@ -76,8 +77,8 @@
 									<h2>Hall-Effect Transport in High Magnetic Fields</h2>
 									<body>
 										<div class="formula">
-											<label></label><span>`\J_\mu = \sigma_{\mu\nu}E_\nu\qquad\qquad(1)`</span>
-											<label></label><span>`\E_\mu = \rho_{\mu\nu}J_\nu\qquad\qquad(2)`</span>
+											\begin{equation}J_\mu = \sigma_{\mu\nu}E_\nu\qquad\qquad(1)\end{equation}
+											\begin{equation}E_\mu = \rho_{\mu\nu}J_\nu\qquad\qquad(2)\end{equation}
 										</div>
 									</body>
 									<body>
@@ -90,7 +91,7 @@
 									</body>
 									<body>
 										<div class="formula">
-											<label></label><span>`\rho_{yx} = \frac{B}{nqc}\qquad\qquad(3)`</span>
+											\begin{equation}\rho_{yx} = \frac{B}{nqc}\qquad\qquad(3)\end{equation}
 										</div>
 									</body>
 								</article>
@@ -108,7 +109,7 @@
 									Hall resistance R<sub>H</sub>
 									<body>
 										<div class="formula">
-											<span>`R_H = \frac{V_y}{Ix} = \rho_{yx} = \frac{h}{\nu e^2}\qquad\qquad(4)`</span>
+											\begin{equation}R_H = \frac{V_y}{Ix} = \rho_{yx} = \frac{h}{\nu e^2}\qquad\qquad(4)\end{equation}
 										</div>
 										<div class="formula">
 											where <span>`\nu`</span> is a quantum number whose meaning will be made clear soon.
@@ -125,7 +126,7 @@
 									we compare Eq.(3) and Eq.(4)
 									<body>
 										<div class="formula">
-											 <span>`R_H = \frac{B}{n e c} = \frac{h}{e^2}\frac{BA}{hc \/ e}\frac{1}{nA} = \frac{h}{e^2}\frac{\Phi}{\Phi_0}\frac{1}{N_e} = \frac{h}{e^2}\frac{N_\Phi}{N_e} \qquad \qquad (5)`</span> 
+											 \begin{equation}R_H = \frac{B}{n e c} = \frac{h}{e^2}\frac{BA}{hc / e}\frac{1}{nA} = \frac{h}{e^2}\frac{\Phi}{\Phi_0}\frac{1}{N_e} = \frac{h}{e^2}\frac{N_\Phi}{N_e} \qquad \qquad (5)\end{equation}
 										</div>
 										<div class="formula">
 											where A is the area of the system, <span>`N_e = nA`</span> is the number of electrons, <span>`\Phi = BA`</span> is the flux enclosed in the system, and <span>`\Phi_0 = \frac{hc}{e}`</span> is the flux quantum, and <span>`N_\Phi`</span> is the number of flux quanta in the system. 
@@ -135,7 +136,7 @@
 									<body>
 										we can identify the quantum number
 										<div class="formula">
-											<span>`\nu = \frac{N_e}{N_\Phi} \qquad \qquad (6)`</span> 
+											\begin{equation}\nu = \frac{N_e}{N_\Phi} \qquad \qquad (6)\end{equation}
 									   </div>
 									   as the number of electrons per flux quantum in the system. For reasons that will become apparent, this ratio is commonly referred to as the (Landau-level) filling factor. 
 								</article>
@@ -162,14 +163,14 @@
 											resistivity(<span>`\rho`</span>) and resistance(R) for classical systems (in the shape of a hypercube) of size L are related by
 										</div>
 										<div class="formula">
-											<span>`R = \rho L^{(2-d)}\qquad\qquad (7)`</span> 
+											\begin{equation}R = \rho L^{(2-d)}\qquad\qquad (7)\end{equation}
 									    </div>		
 									    <div class="formula">
 										Two dimensions (2D) is therefore special since the resistance of the sample is scale-invariant.	In 2D, R and <span>`\rho`</span> have the same dimensionality as <span>`h \/ e^2`</span>. 
 									   </div>	
 									   But R is still geometry-dependent.
 										<div class="formula">
-											<span>`R = \rho \frac{L}{W}\qquad\qquad (8)`</span> 
+											\begin{equation}R = \rho \frac{L}{W}\qquad\qquad (8)\end{equation}
 										</div>	
 										This factor is the aspect ratio L/W, a dimensionless geometric property of the sample (describing its shape but not its size).
 									</body>
@@ -180,7 +181,7 @@
 									The situation is very different in a Hall measurement. Assuming current flows in the horizontal (x) direction, we have
 									<body>
 										<div class = "formula">
-											<span>`R_{yx} = \frac{V_y}{I_x} = \frac{E_yW}{I_x} = \frac{E_y}{I_x \/ W} = \frac{E_y}{J_x} = \rho_{yx}`</span>
+											\begin{equation}R_{yx} = \frac{V_y}{I_x} = \frac{E_yW}{I_x} = \frac{E_y}{I_x / W} = \frac{E_y}{J_x} = \rho_{yx}\qquad\qquad (9)\end{equation}
 										</div>
 									</body>
 									<br />
@@ -219,13 +220,83 @@
 											As a result, we can transform to a frame of reference moving with velocity <span>`-\vec{v}`</span> relative to the lab frame. In this frame the electrons appear to be moving at velocity <span>`+\vec{v}`</span> and carrying current density
 										</div>
 										<div class = "formula">
-											`\vec{J} = -n e\vec{v}`
+											\begin{equation}\vec{J} = -n e\vec{v}\qquad \qquad (10)\end{equation}
+										</div>
+										In the lab frame, the electromagnetic fields are
+										<div class = "formula">
+											\begin{equation}\begin{matrix}\vec{E} = \vec{0}\\ \vec{B} = B\hat{z}\end{matrix} \qquad\qquad(11)\end{equation}
+										</div>
+										Lorentz transformation
+										<div class = "formula">
+											\begin{equation}\begin{matrix}\frac{\vec{E}'}{c} = \gamma(\frac{\vec{E}}{c}+\vec{\beta}\times\vec{B}) - \frac{\gamma^2}{\gamma+1}\vec{\beta}(\vec{\beta}\cdot\frac{\vec{E}}{c})\\  \vec{B}' = \gamma(\vec{B}-\vec{\beta}\times\frac{\vec{E}}{c}) - \frac{\gamma^2}{\gamma+1}\vec{\beta}(\vec{\beta}\cdot\vec{B}) \end{matrix} \qquad\qquad(12)\end{equation}
+										</div>
+										
+										<div class = "formula">
+											In which, <span>`\vec{\beta} = \frac{(-\vec{v})}{c}`</span> and <span>`\gamma = \frac{1}{\sqrt{1-\left(\frac{v}{c}\right)^2}}`</span>. Since <span>`\beta`</span> is small，in moving frame, the electromagnetic fields are (to the lowest order in <span>`\beta`</span>)
+										</div>
+								
+										<div class = "formula">
+											\begin{equation}\begin{matrix}\vec{E} = -\vec{v}\times\vec{B}\\ \vec{B} = B\hat{z}\end{matrix} \qquad\qquad(13)\end{equation}
+										</div>
+										<div class = "formula">
+											This Lorentz transformation picture is precisely equivalent to the usual statement that an electric field must exist which just cancels out the Lorentz force <span>`-e\vec{v}\times\vec{B}`</span> in order for the device to carry the current straight through.
+										</div>
+										Thus we have
+										<div class = "formula">
+											\begin{equation}\vec{E} = \frac{B}{n e}\vec{J}\times\hat{B}\qquad\qquad(14)\end{equation}
+										</div>
+										The resistivity and conductivity tensors are respectively defined by Eq.(1) and Eq.(2), and from Eq.(4) we have
+										<div class = "formula">
+											\begin{equation} \rho = \frac{B}{ne}\left(\begin{matrix} 0 & 1\\ -1& 0\end{matrix}\right) \qquad\qquad(15)\end{equation}
+										</div>
+										<div class = "formula">
+											\begin{equation} \sigma = \frac{ne}{B}\left(\begin{matrix} 0 & -1\\ 1& 0\end{matrix}\right) \qquad\qquad(16)\end{equation}
+										</div>
+										<div class = "formula">
+											Notice that, paradoxically, the system looks insulating since <span>`\sigma_{x x} =0 `</span> and yet it also looks like a perfect conductor since <span>`\rho_{x x} = 0`</span>.
 										</div>
 									</body>
 								</article>
 
 									
-									
+								<article>
+									<hr />
+									<header class="major">
+										<h1>Classical and Semiclassical Dynamics
+									</header>
+									The classical equations of motion for a particle of charge −e moving in 2D under the influence of the Lorentz force
+									<div class = "formula">
+										\begin{equation}\begin{matrix}m_e \ddot{x} = -\frac{eB}{c}\dot{y}\\m_e \ddot{y} = \frac{eB}{c}\dot{x} \end{matrix}\qquad\qquad(17)\end{equation}
+									</div>
+									The general solution
+									<div class = "formula">
+										\begin{equation}\vec{r} = R[cos(\omega_c t+\delta),sin(\omega_c t+\delta)]\qquad\qquad(18)\end{equation}
+									</div>
+									<div class = "formula"><span>`\delta`</span> is an arbitrary phase. And the classical cyclotron frequency is</div>
+									<div class = "formula">
+										\begin{equation}\omega_c= \frac{eB}{m_ec}\qquad\qquad(19)\end{equation}
+									</div>
+									tangential speed controls the radius.
+									<div class = "formula">
+										\begin{equation}v =R\omega_c\qquad\qquad(20)\end{equation}
+									</div>
+									For a nonrelative classical electron, the Lagrangian is
+									<div class = "formula">
+										\begin{equation}\mathcal{L} =\frac{1}{2}m_e\dot{x}^\mu\dot{x}^\mu - e\dot{x}^\mu A^\mu\qquad\qquad(21)\end{equation}
+									</div>
+									Euler-Lagrange equation of motion
+									<div class = "formula">
+										\begin{equation}m_e\ddot{x}^\nu = -e[\partial_\nu A^\mu-\partial_\mu A^\nu]\dot{x}^\mu\qquad\qquad(22)\end{equation}
+									</div>
+									Canonical momentum
+									<div class = "formula">
+										\begin{equation}p^\mu = m_e \dot{x}^\mu-eA^\mu\qquad\qquad(23)\end{equation}
+									</div>
+									Hamiltonian
+									<div class = "formula">
+										\begin{equation}H = \frac{1}{2m_e}\left(p^\mu+eA^\mu\right)^2\qquad\qquad(24)\end{equation}
+									</div>
+								</article>	
 									
 									
 									
