@@ -4,6 +4,7 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=AM_HTMLorMML-full"></script>
 <html>
 	<head>
 		<title>Elements Reference - Massively by HTML5 UP</title>
@@ -19,7 +20,7 @@
 
 				<!-- Header -->
 					<header id="header">
-						<a href="index.html" class="logo">Massively</a>
+						<a href="index.html" class="logo">Notes</a>
 					</header>
 
 				<!-- Nav -->
@@ -28,8 +29,7 @@
 							<li><a href="index.html">This is Massively</a></li>
 							<li><a href="generic.html">Generic Page</a></li>
 							<li class="active"><a href="elements.html">Elements Reference</a></li>
-							<li><a href="QuantumHallEffect.html">Elements Reference</a></li>
-
+							<li><a href="elements2.html">Elements Reference</a></li>
 						</ul>
 						<ul class="icons">
 							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
@@ -45,26 +45,193 @@
 						<!-- Post -->
 							<section class="post">
 								<header class="major">
-									<h1>Elements<br />
-									Reference</h1>
+									<h1>Integer
+									Quantum
+									Hall
+									Effect</h1>
 								</header>
 
 								<!-- Text stuff -->
-									<h2>Text</h2>
-									<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
-									This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
-									This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>.
-									Finally, this is a <a href="#">link</a>.</p>
+									
+								<h2>Notes</h2>
+								<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
+								This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
+								This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>.
+								Finally, this is a <a href="#">link</a>.</p>
+								<hr />
+									
+								<article>
+									<h2>Hall-Effect Transport in High Magnetic Fields</h2>
+									<body>
+										<div class="formula">
+											<label></label><span>`\J_\mu = \sigma_{\mu\nu}E_\nu\qquad\qquad(1)`</span>
+											<label></label><span>`\E_\mu = \rho_{\mu\nu}J_\nu\qquad\qquad(2)`</span>
+										</div>
+									</body>
+									<body>
+										<div class="formula">
+											For magnetic field <span>`\vec{B} = B\hat{z}`</span> and current density <span>`\vec{J} = J\hat{x}`</span>, 
+											the requirement that the <span>`\hat{y}`</span> component of the electric force cancels out the corresponding
+											 component of the Lorentz force (so that there is no current in the <span>`\hat{y}`</span> direction) yields
+											the standard classical expression for the Hall resistivity.
+										</div>
+									</body>
+									<body>
+										<div class="formula">
+											<label></label><span>`\rho_{yx} = \frac{B}{nqc}\qquad\qquad(3)`</span>
+										</div>
+									</body>
+								</article>
+								<hr />
+									
+								
+								
+								
+								<article>
+									
+									<!-- Image -->
+									<h5>Hall resitance R<sub>H</sub> & longicudinal resistance R vs. magnetic field</h5>
+									<span class="image fit"><img src="images/IntegerHallEffect.png" alt="" /></span>
+									
+									Hall resistance R<sub>H</sub>
+									<body>
+										<div class="formula">
+											<span>`R_H = \frac{V_y}{Ix} = \rho_{yx} = \frac{h}{\nu e^2}\qquad\qquad(4)`</span>
+										</div>
+										<div class="formula">
+											where <span>`\nu`</span> is a quantum number whose meaning will be made clear soon.
+										</div>
+									</body>
+									<br />
+									<body>
+										<div class="formula">
+											Associated with each of these plateaux is a dramatic decrease in the (dissipative) longitudinal resistance <span>`R\propto \rho_{x x} \rightarrow 0`</span> which drops by as much as 13 orders of magnitude in the plateau regions, in sharp contrast to the Drude theory.
+										</div>
+									</body>
+
 									<hr />
-									<h2>Heading Level 2</h2>
-									<h3>Heading Level 3</h3>
-									<h4>Heading Level 4</h4>
-									<h5>Heading Level 5</h5>
-									<h6>Heading Level 6</h6>
+									we compare Eq.(3) and Eq.(4)
+									<body>
+										<div class="formula">
+											 <span>`R_H = \frac{B}{n e c} = \frac{h}{e^2}\frac{BA}{hc \/ e}\frac{1}{nA} = \frac{h}{e^2}\frac{\Phi}{\Phi_0}\frac{1}{N_e} = \frac{h}{e^2}\frac{N_\Phi}{N_e} \qquad \qquad (5)`</span> 
+										</div>
+										<div class="formula">
+											where A is the area of the system, <span>`N_e = nA`</span> is the number of electrons, <span>`\Phi = BA`</span> is the flux enclosed in the system, and <span>`\Phi_0 = \frac{hc}{e}`</span> is the flux quantum, and <span>`N_\Phi`</span> is the number of flux quanta in the system. 
+									   </div>										
+									</body>
+									<br />
+									<body>
+										we can identify the quantum number
+										<div class="formula">
+											<span>`\nu = \frac{N_e}{N_\Phi} \qquad \qquad (6)`</span> 
+									   </div>
+									   as the number of electrons per flux quantum in the system. For reasons that will become apparent, this ratio is commonly referred to as the (Landau-level) filling factor. 
+								</article>
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+							
+									
+								<article>
 									<hr />
-									<header>
-										<h2>Heading with a Subtitle</h2>
-										<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
+									<header class="major">
+										<h1>Why 2D is Important</h1>
+									</header>
+									<body>
+										<div class="formula">
+											resistivity(<span>`\rho`</span>) and resistance(R) for classical systems (in the shape of a hypercube) of size L are related by
+										</div>
+										<div class="formula">
+											<span>`R = \rho L^{(2-d)}\qquad\qquad (7)`</span> 
+									    </div>		
+									    <div class="formula">
+										Two dimensions (2D) is therefore special since the resistance of the sample is scale-invariant.	In 2D, R and <span>`\rho`</span> have the same dimensionality as <span>`h \/ e^2`</span>. 
+									   </div>	
+									   But R is still geometry-dependent.
+										<div class="formula">
+											<span>`R = \rho \frac{L}{W}\qquad\qquad (8)`</span> 
+										</div>	
+										This factor is the aspect ratio L/W, a dimensionless geometric property of the sample (describing its shape but not its size).
+									</body>
+									<hr />
+									<span class="image left"><img src="images/2DRRho.png" alt="" /></span>
+									<br />
+									<br />
+									The situation is very different in a Hall measurement. Assuming current flows in the horizontal (x) direction, we have
+									<body>
+										<div class = "formula">
+											<span>`R_{yx} = \frac{V_y}{I_x} = \frac{E_yW}{I_x} = \frac{E_y}{I_x \/ W} = \frac{E_y}{J_x} = \rho_{yx}`</span>
+										</div>
+									</body>
+									<br />
+									<br />
+								</article>
+									
+										
+										
+										
+										
+
+										
+										
+										
+										
+										
+										
+								<article>
+									<hr />
+									<header class="major">
+										<h1>Why Disorder and Localization Are Important
+									</header>
+									Paradoxically, the extreme universality of the transport properties in the quantum Hall regime occurs because of, rather than in spite of, the random disorder and uncontrolled imperfections which the devices contain. Anderson localization in the presence of disorder plays an essential role in the quantization, but this localization is strongly modified from the usual case because of the strong magnetic field.
+									<br />
+									<body>
+										<br />
+										In our study of Anderson localization we found that in 2D all states are localized even for arbi- trarily weak disorder. The essence of this weak localization effect was shown to be the logarithmic divergence of the time integral of the current “echo” associated with the quantum interference corrections to classical transport. We further saw that these quantum interference effects relied crucially on the existence of time-reversal symmetry. 
+										<div class = "formula">
+											Thus the aspect ratio <span>`L \/ W`</span> (or any other geometric parameter) does not enter the relation between <span>`R_{yx}`</span> and <span>`\rho_{yx}`</span>. This is crucial to the universality of the result. In particular, it means that one does not have to measure the physical dimensions of the sample to one part in <span>`10^{10}`</span> in order to obtain the Hall resistivity to that precision. 			
+										</div>
+										<br />
+										Therefore, there is no need to distinguish between the Hall resistance and the Hall resistivity.
+										<hr />
+										<div class = "formula">
+											In the absence of any impurities, the 2D electron gas is translationally invariant and there does not exist any preferred frame of reference.
+											As a result, we can transform to a frame of reference moving with velocity <span>`-\vec{v}`</span> relative to the lab frame. In this frame the electrons appear to be moving at velocity <span>`+\vec{v}`</span> and carrying current density
+										</div>
+										<div class = "formula">
+											`\vec{J} = -n e\vec{v}`
+										</div>
+									</body>
+								</article>
+
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									<hr />
 									</header>
 									<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
 									<header>
@@ -72,13 +239,15 @@
 										<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
 									</header>
 									<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
+									
+									<hr />
 									<header>
 										<h4>Heading with a Subtitle</h4>
 										<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
 									</header>
-									<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
+									<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan. We will discuss the origin of this precise quantization in this chapter, using a noninteracting-electron model.</p>
 
-									<hr />
+									
 
 								<!-- Lists -->
 									<h2>Lists</h2>
