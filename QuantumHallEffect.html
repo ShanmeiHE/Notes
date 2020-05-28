@@ -316,12 +316,91 @@
 									<header class="major">
 										<h1>Quantum Dynamics in Strong B Fields
 									</header>
-
+									First, we choose <b>Landau gauge</b> for the vector potential
+									<div class = "formula">
+										\begin{equation}\vec{A}(\vec{r}) = - xB\hat{y}\qquad\qquad(28)\end{equation}
+									</div>
+									The Hamiltonian can thus be written in the Landau gauge as
+									<div class = "formula">
+										\begin{equation}H = \frac{1}{2m_e}\left[p_x^2+\left(p_y-eBx\right)^2\right] \qquad\qquad(29)\end{equation}
+									</div>
+									Taking advantage of the translation symmetry in the y direction, let us write the wave function in the form
+									<div class = "formula">
+										\begin{equation} \psi_k(x,y) = e^{iky}f_k(x) \qquad\qquad(30)\end{equation}
+									</div>
+									<div class = "formula">
+										Since it's an eigenstate of <span>`p_y`</span>, we can make the replacement
+									</div>
+									<div class = "formula">
+										\begin{equation} h_kf_k(x)=\epsilon_kf_k(x) \qquad\qquad(31)\end{equation}
+									</div>
+									<div class = "formula">
+										\begin{equation} h_k\equiv \frac{p_x^2}{2m_e}+\frac{1}{2m_e}\left(\hbar k-eBx\right)^2 \qquad\qquad(32)\end{equation}
+									</div>
+									This is simply a 1D displaced harmonic oscillator
+									<div class = "formula">
+										\begin{equation} h_k\equiv \frac{p_x^2}{2m_e}+\frac{1}{2}m_e\omega_c^2\left(x-\frac{\hbar k}{eB}\right)^2 \qquad\qquad(33)\end{equation}
+									</div>
+									<div class = "formula">
+										The central position <span>\begin{equation}X_k = \frac{\hbar k}{eB}\end{equation}</span> is determined by the y momentum quantum number.
+									</div>
+									Thus for each plane wave chosen for the y direction there will be an entire family of energy eigenvalues
+									<div class = "formula">
+										\begin{equation} \epsilon_{kn} =  \left(n+\frac{1}{2}\right)\hbar\omega \qquad\qquad(33)\end{equation}
+									</div>
+									The corresponding (unnormalized) eigenfunctions are
+									<div class = "formula">
+										\begin{equation} \psi_{nk}(\vec{r}) = e^{iky}H_n\left( \sqrt{\frac{eB}{\hbar}}(x-\frac{\hbar k}{eB}) \right)e^{-\frac{eB}{2\hbar}\left(x-\frac{\hbar k}{eB}\right)^2} \qquad\qquad(33)\end{equation}
+									</div>
+									<div class = "formula">
+										where <span>`H_n`</span> is the n-th Hermite polynomial displaced to the new central position <span>`X_k`</span>
+									</div>
+									These harmonic oscillator levels are called <b>Landau levels</b>. 
+									<hr />
+									We assume periodic boundary conditions in the y direction. Because of the vector potential, it is impossible to simultaneously have periodic boundary conditions in the x direction.
+									However, since the basis wave functions are harmonic oscillator polynomials multiplied by strongly converging Gaussians, they rapidly vanish for positions away from the center position X<sub>k</sub>.
+									<br />
+									<br />
+									<div class = "formula">
+										Let us suppose that the sample is rectangular with dimensions <span>`L_x`</span>, <span>`L_y`</span>, and suppose that <span>`0 < x < L_x`</span>. Since the center position <span>`X_k`</span> inside the sample, we have 
+										<span>\begin{equation} 0 < \frac{\hbar k}{eB} < L_x\qquad\qquad(34)\end{equation}</span>
+									</div>
+									Therefore, the total number of states in each Landau level 
+									<div class = "formula">
+										\begin{equation} N = \sum_k 1 = \int_{0}^{\frac{ eB L_x}{\hbar}} \frac{L_y}{2\pi}dk =\frac{eB L_xL_y}{h} = N_\Phi \qquad\qquad(35)\end{equation}
+									</div>
+									is the number of flux quanta penetrating the sample.
+									<div class = "formula">
+										where <span>`\Phi_0=\frac{h}{e}`</span>, and <span>`N_\Phi = \frac{\Phi}{\Phi_0}`</span>.
+									</div>
+									<div class = "formula">
+										Thus there is one state per Landau level per flux quantum. As a result, when the filling factor <span>`\nu`</span> of Eq. (6) takes an integer value, we have in the ground state exactly <span>`\nu`</span> (lowest-energy) Landau levels completely filled, and all higher Landau levels empty.
+										Such a state is clearly special, as there is a gap for excitations in the bulk.
+									</div>
+									The spacing between the centers
+									<div class = "formula">
+										\begin{equation}\Delta = \frac{\hbar\Delta_k}{eB}  = \frac{h}{eBL_y} \end{equation}
+									</div>
+									
 								</article>
 									
 									
 									
 									
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 									
 									
 									
