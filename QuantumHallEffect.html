@@ -379,9 +379,39 @@
 									</div>
 									The spacing between the centers
 									<div class = "formula">
-										\begin{equation}\Delta = \frac{\hbar\Delta_k}{eB}  = \frac{h}{eBL_y} \end{equation}
+										\begin{equation}\Delta = \frac{\hbar\Delta_k}{eB}  = \frac{h}{eBL_y}\qquad\qquad(36) \end{equation}
 									</div>
-									
+									<div class = "formula">
+										When <span>\begin{equation}x = \frac{\hbar k}{eB}\pm \sqrt{\frac{2\hbar}{eB}}\qquad\qquad(37)\end{equation}</span>
+									</div>
+									The Gaussians value is 1/e of the value in the center position. We can contrast Eq.(36) and Eq.(37)
+									<div class = "formula">
+										\begin{equation}\frac{\Delta x}{\Delta} =  \sqrt{\frac{eB}{\hbar}}\frac{L_y}{\pi}  \qquad\qquad(38) \end{equation}
+									</div>
+									It's a vastly large number, thus the different basis states are strongly overlapping.
+									<hr />
+									<div class = "formula">
+										Having now found the eigenfunctions for an electron in a strong magnetic field, we can relate them back to the semiclassical picture of wave packets undergoing circular cyclotron motion. Consider an initial semiclassical wave packet located at some position and having some specified mechanical momentum <span>`\frac{h\vec{K}}{2\pi}`</span>.
+										In the semiclassical limit, we have
+										\begin{equation}\left(n+\frac{1}{2}\right)\hbar\omega_c \sim \frac{\hbar^2 K^2}{2m_e}\qquad\qquad(39)\end{equation}
+										Hence this particle packet will be made up of a linear combination of a large number of different Landau-level states centered around 
+										\begin{equation} \overline{n} = \frac{\hbar K^2}{2m_e\omega_c} \qquad\qquad(40)\end{equation}
+										\begin{equation} \begin{aligned} 
+										\Psi(\vec{r},t) &= \frac{L_y}{2\pi}\sum_n\int dk a_n(k)\psi_{nk}(\vec{r})e^{-i\left(n+\frac{1}{2}\right)\omega_ct}\\
+										&= \frac{L_y}{2\pi}\sum_n\int dk a_n(k) e^{iky}H_n\left( \sqrt{\frac{eB}{\hbar}}(x-\frac{\hbar k}{eB}) \right)e^{-\frac{eB}{2\hbar}\left(x-\frac{\hbar k}{eB}\right)^2} e^{-i\left(n+\frac{1}{2}\right)\omega_ct}\\
+										\end{aligned} \qquad\qquad(41)\end{equation}
+									</div>
+									If one works through the details, one finds that the motion is indeed circular and corresponds to the expected semiclassical cyclotron orbit.
+									<hr />
+									For simplicity we will restrict the remainder of our discussion mostly to the lowest Landau level
+									<div class = "formula">
+										\begin{equation}\psi_k(\vec{r}) = \left(\frac{eB}{\pi\hbar L_y^2}\right)^{\frac{1}{4}}e^{iky}e^{-\frac{eB}{2\hbar}\left(x-\frac{\hbar k}{eB}\right)^2}\qquad\qquad(42)\end{equation}
+									</div>
+									and every state has the same energy eigenvalue <span>\begin{equation}\epsilon_k = \frac{1}{2}\hbar\omega_c\qquad\qquad(43)\end{equation}</span>
+
+
+
+
 								</article>
 									
 									
