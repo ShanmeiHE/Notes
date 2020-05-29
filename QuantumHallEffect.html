@@ -462,9 +462,28 @@
 									<div class = "formula">
 										\begin{equation} \begin{aligned}
 										h_k&=\frac{p_x^2}{2m_e}+\frac{1}{2}m_e\omega_c^2(x-kl^2)^2+eV(x)\\
-										&=\frac{p_x^2}{2m_e}+\\
-										 \qquad\qquad(53)\end{aligned}\end{equation}
+										&=\frac{p_x^2}{2m_e}+\frac{1}{2}m_e\omega_c^2(x-X_k)^2+e
+										\left(V(X_k) + \left.\frac{dV(x)}{dx}\right|_{x=X_k}(x-X_k)\right)\\
+										&=\frac{p_x^2}{2m_e}+\frac{1}{2}m_e\omega_c^2\left[x-X_k+ \frac{e}{m_e\omega_c^2} \left.\frac{dV(x)}{dx}\right|_{x=X_k}\right]^2
+										-\frac{1}{2}m_e\left(\frac{e}{m_e\omega_c}\left.\frac{dV(x)}{dx}\right|_{x=X_k}\right)^2+eV(X_k) \\
+										\end{aligned}\qquad\qquad(53)\end{equation}
 									</div>	
+									
+									<div class = "formula">
+										\begin{equation} \begin{aligned}
+										\epsilon_k&= \left(n+\frac{1}{2}\right)\hbar\omega_c +eV(X_k) +\frac{1}{2}m_e\left(\frac{1}{B}\left.\frac{dV(x)}{dx}\right|_{x=X_k}\right)^2\\
+										\end{aligned}\qquad\qquad(55)\end{equation}
+									</div>	
+
+									We see that the group velocity
+									<div class = "formula">
+										\begin{equation} \vec{v}_k = \frac{1}{\hbar}\frac{\partial\epsilon_{kn}}{\partial k}\hat{y} = \frac{e}{\hbar}\frac{d V(X_k)}{d X_k}\frac{d X_k}{dk} \hat{y}= \frac{el^2}{\hbar}\left.\frac{d V(x)}{dx}\right|_{x = X_k}\hat{y}\qquad\qquad(56)\end{equation}
+									</div>
+									
+									<span class="image left"><img src="images/ek.png" alt="" /></span>
+									This means that in the ground state there are edge currents of opposite sign flowing in the sample. The semiclassical interpretation of these currents is that they represent “skipping orbits” in which the circular cyclotron motion is interrupted by collisions with the walls at the edges.
+									<span class="image left"><img src="images/edgestate.png" alt="" /></span>
+									
 								</article>
 									
 									
