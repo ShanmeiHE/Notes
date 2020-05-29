@@ -405,16 +405,67 @@
 									<hr />
 									For simplicity we will restrict the remainder of our discussion mostly to the lowest Landau level
 									<div class = "formula">
-										\begin{equation}\psi_k(\vec{r}) = \left(\frac{eB}{\pi\hbar L_y^2}\right)^{\frac{1}{4}}e^{iky}e^{-\frac{eB}{2\hbar}\left(x-\frac{\hbar k}{eB}\right)^2}\qquad\qquad(42)\end{equation}
+										\begin{equation}\psi_k(\vec{r}) = \left(\frac{1}{\sqrt{\pi}lL_y}\right)^{\frac{1}{2}}e^{iky}e^{-\frac{1}{2l^2}\left(x-kl^2\right)^2}\qquad\qquad(42)\end{equation}
+										where <span>\begin{equation}l = \sqrt{\frac{\hbar}{eB}}\qquad\qquad(43)\end{equation}</span>
 									</div>
-									and every state has the same energy eigenvalue <span>\begin{equation}\epsilon_k = \frac{1}{2}\hbar\omega_c\qquad\qquad(43)\end{equation}</span>
-
-
-
-
+									and every state has the same energy eigenvalue <span>\begin{equation}\epsilon_k = \frac{1}{2}\hbar\omega_c\qquad\qquad(44)\end{equation}</span>
+									<br />
+									the current density in the k-th basis state is
+									<div class = "formula">
+										\begin{equation} \langle \vec{J}(x,y)\rangle = -\frac{e}{m_e}\psi_k^*(x,y)\left[-i\hbar\nabla +e\vec{A}(x,y) \right]\psi_k(x,y) \qquad\qquad(45)\end{equation}
+									</div>
+									<div class = "formula">
+										\begin{equation} \begin{aligned}
+										\langle I_y \rangle &= -\frac{e}{m_e\sqrt{\pi}lL_y}\int_{-\infty}^{+\infty}dx\ e^{-\frac{1}{l^2}\left(x-kl^2\right)^2}\left[-i\hbar k - eBx \right] \\
+										&= -\frac{e\omega_c}{\sqrt{\pi}lL_y}\int_{-\infty}^{+\infty}dx\ e^{-\frac{1}{l^2}\left(x-kl^2\right)^2}(x-kl^2)) \\
+										 \end{aligned} \qquad\qquad(46)\end{equation}
+									</div>
+									<div class = "formula">
+										We see from the integrand that the current density is anti-symmetric about the peak of the Gaussian at <span>`X_k = kl^2`</span> and hence the total current vanishes. This anti-symmetry is the remnant of the semiclassical circular motion.
+										This could perhaps be anticipated from the observation that the energy of the Landau-level states is independent of the wave vector k, thus the group velocity is given by
+										\begin{equation} v_y=\frac{1}{\hbar}\frac{\partial \epsilon_{kn}}{\partial k} =0 \qquad\qquad(47)\end{equation}
+									</div>
+									<hr />
+									Let us now consider the case of a uniform electric field pointing in the x direction and giving rise to the potential energy
+									<div class = "formula">
+										\begin{equation} V(\vec{r})=eEx \qquad\qquad(48)\end{equation}
+									</div>
+									The Hamiltonian in Eq.(33) becomes
+									<div class = "formula">
+										\begin{equation} h_k=\frac{p_x^2}{2m_e}+\frac{1}{2}m_e\omega_c^2(x-kl^2)^2+eEx \qquad\qquad(49)\end{equation}
+									</div>
+									we see that the oscillator is now centered at the new (and slightly shifted) position
+									<div class = "formula">
+										\begin{equation} X_k' =kl^2-\frac{eE}{m_e\omega_c^2} = X_k-\frac{eE}{m_e\omega_c^2} \qquad\qquad(50)\end{equation}
+									</div>
+									and the energy eigenvalue
+									<div class = "formula">
+										\begin{equation} \epsilon_{kn} =\left(n+\frac{1}{2}\right)\hbar\omega_c + eEX_k' + \frac{1}{2}m_e\overline{v}^2 \qquad\qquad(51)\end{equation}
+										where the drift velocity is <span>`\overline{v}\equiv \frac{E}{B}`</span>.
+									</div>
+									the perfect anti- symmetry of the current distribution is destroyed and there is a net current
+									<div class = "formula">
+										\begin{equation} \begin{aligned}
+										\langle I_y \rangle &= -e\frac{\overline{v}}{L_y}
+										 \end{aligned} \qquad\qquad(52)\end{equation}
+									</div>
 								</article>
 									
+								<article>
+									<hr />
+									<header class="major">
+										<h1>Integer Quantum Hall Effect Edge State
+									</header>
 									
+									Now that we understand drift in a uniform electric field, we can consider the problem of electrons confined in a Hall bar of finite width by a non-uniform electric field. 
+									For simplicity, we will consider the situation where the potential V(x) is smooth on the scale of the magnetic length.
+									<div class = "formula">
+										\begin{equation} \begin{aligned}
+										h_k&=\frac{p_x^2}{2m_e}+\frac{1}{2}m_e\omega_c^2(x-kl^2)^2+eV(x)\\
+										&=\frac{p_x^2}{2m_e}+\\
+										 \qquad\qquad(53)\end{aligned}\end{equation}
+									</div>	
+								</article>
 									
 									
 
