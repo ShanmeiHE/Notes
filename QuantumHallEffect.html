@@ -432,7 +432,13 @@
 									</div>
 									The Hamiltonian in Eq.(33) becomes
 									<div class = "formula">
-										\begin{equation} h_k=\frac{p_x^2}{2m_e}+\frac{1}{2}m_e\omega_c^2(x-kl^2)^2+eEx \qquad\qquad(49)\end{equation}
+										\begin{equation}\begin{aligned}
+										h_k &= \frac{p_x^2}{2m_e}+\frac{1}{2}m_e\omega_c^2(x-kl^2)^2+eEx \\
+										&= \frac{p_x^2}{2m_e}+\frac{1}{2}m_e\omega_c^2(x-kl^2)^2+eE(x-kl^2) +\frac{e^2E^2}{2m_e\omega_c^2}-\frac{e^2E^2}{2m_e\omega_c^2} +eEkl^2 \\
+										&= \frac{p_x^2}{2m_e}+\frac{1}{2}m_e\omega_c^2\left(x-kl^2+\frac{eE}{m_e\omega_c^2}\right)^2+\left(eEkl^2-m_e\left(\frac{eE}{m_e\omega_c}\right)^2\right)+\frac{1}{2}m_e\left(\frac{eE}{m_e\omega_c}\right)^2\\
+										&= \frac{p_x^2}{2m_e}+\frac{1}{2}m_e\omega_c^2\left(x-kl^2+\frac{eE}{m_e\omega_c^2}\right)^2+eE\left(kl^2-\frac{eE}{m_e\omega_c^2}\right)+\frac{1}{2}m_e\left(\frac{eE}{m_e\omega_c}\right)^2\\
+										\end{aligned}\qquad\qquad(49)
+										\end{equation}
 									</div>
 									we see that the oscillator is now centered at the new (and slightly shifted) position
 									<div class = "formula">
@@ -443,11 +449,17 @@
 										\begin{equation} \epsilon_{kn} =\left(n+\frac{1}{2}\right)\hbar\omega_c + eEX_k' + \frac{1}{2}m_e\overline{v}^2 \qquad\qquad(51)\end{equation}
 										where the drift velocity is <span>`\overline{v}\equiv \frac{E}{B}`</span>.
 									</div>
+									This result can be derived either by explicitly doing the integral for the current or by noting that the wave-packet group velocity is
+									<div class = "formula">
+										\begin{equation}
+										\frac{1}{\hbar}\frac{\partial \epsilon_{kn}}{\partial k} = \frac{eE}{\hbar}\frac{\partial X_k'}{\partial k} = \frac{eE}{\hbar}\frac{\partial X_k}{\partial k} = \overline{v}\qquad\qquad(52)
+										\end{equation}
+									</div>
 									the perfect anti- symmetry of the current distribution is destroyed and there is a net current
 									<div class = "formula">
 										\begin{equation} \begin{aligned}
 										\langle I_y \rangle &= -e\frac{\overline{v}}{L_y}
-										 \end{aligned} \qquad\qquad(52)\end{equation}
+										 \end{aligned} \qquad\qquad(53)\end{equation}
 									</div>
 								</article>
 									
@@ -459,31 +471,70 @@
 									
 									Now that we understand drift in a uniform electric field, we can consider the problem of electrons confined in a Hall bar of finite width by a non-uniform electric field. 
 									For simplicity, we will consider the situation where the potential V(x) is smooth on the scale of the magnetic length.
-									<div class = "formula">
-										\begin{equation} \begin{aligned}
-										h_k&=\frac{p_x^2}{2m_e}+\frac{1}{2}m_e\omega_c^2(x-kl^2)^2+eV(x)\\
-										&=\frac{p_x^2}{2m_e}+\frac{1}{2}m_e\omega_c^2(x-X_k)^2+e
-										\left(V(X_k) + \left.\frac{dV(x)}{dx}\right|_{x=X_k}(x-X_k)\right)\\
-										&=\frac{p_x^2}{2m_e}+\frac{1}{2}m_e\omega_c^2\left[x-X_k+ \frac{e}{m_e\omega_c^2} \left.\frac{dV(x)}{dx}\right|_{x=X_k}\right]^2
-										-\frac{1}{2}m_e\left(\frac{e}{m_e\omega_c}\left.\frac{dV(x)}{dx}\right|_{x=X_k}\right)^2+eV(X_k) \\
-										\end{aligned}\qquad\qquad(53)\end{equation}
-									</div>	
-									
-									<div class = "formula">
-										\begin{equation} \begin{aligned}
-										\epsilon_k&= \left(n+\frac{1}{2}\right)\hbar\omega_c +eV(X_k) +\frac{1}{2}m_e\left(\frac{1}{B}\left.\frac{dV(x)}{dx}\right|_{x=X_k}\right)^2\\
-										\end{aligned}\qquad\qquad(55)\end{equation}
-									</div>	
-
+					
 									We see that the group velocity
 									<div class = "formula">
-										\begin{equation} \vec{v}_k = \frac{1}{\hbar}\frac{\partial\epsilon_{kn}}{\partial k}\hat{y} = \frac{e}{\hbar}\frac{d V(X_k)}{d X_k}\frac{d X_k}{dk} \hat{y}= \frac{el^2}{\hbar}\left.\frac{d V(x)}{dx}\right|_{x = X_k}\hat{y}\qquad\qquad(56)\end{equation}
+										\begin{equation} \vec{v}_k = \frac{1}{\hbar}\frac{\partial\epsilon_{kn}}{\partial k}\hat{y} \approx \frac{el^2}{\hbar}\left.\frac{d V(x)}{dx}\right|_{x = X_k}\hat{y}\qquad\qquad(56)\end{equation}
 									</div>
-									
+									<h5> Landau-level dispersions in the presence of a confining potential, for a sample with Hall bar geometry </h5>
 									<span class="image left"><img src="images/ek.png" alt="" /></span>
 									This means that in the ground state there are edge currents of opposite sign flowing in the sample. The semiclassical interpretation of these currents is that they represent “skipping orbits” in which the circular cyclotron motion is interrupted by collisions with the walls at the edges.
-									<span class="image left"><img src="images/edgestate.png" alt="" /></span>
+									<br />
+									<br />
+									<span class="image right"><img src="images/edgestate.png" alt="" /></span>
 									
+									
+									Because momentum in a magnetic field corresponds to position, the edges are essentially real-space realizations of the Fermi surface.
+									A Hall voltage drop across the sample in the x direction corresponds to a difference in electrochemical potential between the two edges.
+									This has the effect of increasing the number of electrons in skipping orbits on one edge of the sample and/or decreasing the number on the other edge.
+									To calculate this current we have to add up the group velocities of all the occupied states,
+									<div class = "formula">
+										\begin{equation} 
+										I = -\frac{e}{L_y}\int_{-\infty}^{+\infty} dk \frac{L_y}{2\pi\hbar}\frac{\partial \epsilon_k}{\partial k}n_k
+										\qquad\qquad(57)\end{equation}
+									</div>
+									where for the moment we assume that, in the bulk, only a single Landau level is occupied and n<sub>k</sub> is the probability that state k in that Landau level is occupied. Assuming zero temperature and noting that the integrand is a perfect derivative, we have
+									<div class = "formula">
+										\begin{equation} 
+										I = -\frac{e}{h}\int_{\mu_R}^{\mu_L} d\epsilon = -\frac{e}{h}[\mu_R-\mu_L]
+										\qquad\qquad(58)\end{equation}
+									</div>
+									The definition of the Hall voltage drop is
+									<div class = "formula">
+										\begin{equation} 
+										(-e)V_H = (-e)[V_R-V_L] = [\mu_R-\mu_L]
+										\qquad\qquad(59)\end{equation}
+									</div>
+									Hence
+									<div class = "formula">
+										\begin{equation} 
+										I = \nu \frac{e^2}{h}V_H
+										\qquad\qquad(60)\end{equation}
+									</div>
+									<div class = "formula">
+										where we have now allowed for the possibility that <span>`\nu`</span> different Landau levels are occupied in the bulk and hence there are ν separate edge channels contributing to the current.
+									</div>
+									we have the desired results
+									<div class = "formula">
+										\begin{equation} \begin{aligned}
+										&\sigma_{xx} = 0\\
+										&\sigma_{xy} = \nu\frac{e^2}{h}
+										\end{aligned}\qquad\qquad(61)\end{equation}
+									</div>
+									<hr />
+									So far we have been ignoring the possible effects of disorder. 
+									Remarkably, in the QHE case, the backscat- tering is essentially zero in very wide samples. 
+									In the case of the Hall bar, scattering into a backward-moving state would require transfer of the electron from one edge of the sample to the other, since the edge states are spatially separated.
+									In short, there can be nothing but forward scattering.
+									An incoming wave given by Eq.(62)
+									<div class = "formula">
+										\begin{equation}
+										\psi(x,y) = \frac{1}{\sqrt{L_y}} e^{iky}f_k(x) \qquad\qquad(62)\end{equation}
+										at most suffering a simple phase shift <span>`\delta_k`</span> as it continues forward:
+										\begin{equation}
+										\psi(x,y) = \frac{1}{\sqrt{L_y}} e^{i\delta_k}e^{iky}f_k(x) \qquad\qquad(63)\end{equation}
+									</div>
+									This is because no other states of the same energy are available.
 								</article>
 									
 									
