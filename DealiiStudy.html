@@ -217,7 +217,39 @@ Triangulation&ltdim, spacedim&gt::n_cells (const int level)const
 										std::cout &lt&lt "Grid written to grid-1.svg" &lt&lt std::endl;
 									</code>
 									<br/>
-									以上是example1中的grid1，接下来我们来看grid2
+									以上是example1中的grid1，接下来我们来看grid2。其实有了c++基础之后grid2也很好懂了，下面直接贴出代码
+									<pre>
+void second_grid()
+{
+  Triangulation<2> triangulation;
+  const Point<2> center(1, 0);
+  const double   inner_radius = 0.5, outer_radius = 1.0;
+  GridGenerator::hyper_shell(
+    triangulation, center, inner_radius, outer_radius, 10);
+  for (unsigned int step = 0; step &lt 5; ++step)
+    {
+      for (auto &cell : triangulation.active_cell_iterators())
+        {
+          for (unsigned int v = 0; v &lt GeometryInfo<2>::vertices_per_cell; ++v)
+            {
+              const double distance_from_center =
+                center.distance(cell->vertex(v));
+              if (std::fabs(distance_from_center - inner_radius) &lt 1e-10)
+                {
+                  cell->set_refine_flag();
+                  break;
+                }
+            }
+        }
+      triangulation.execute_coarsening_and_refinement();
+    }
+  std::ofstream out("grid-2.svg");
+  GridOut       grid_out;
+  grid_out.write_svg(triangulation, out);
+  std::cout &lt&lt "Grid written to grid-2.svg" &lt&lt std::endl;
+}
+									</pre>
+									实际上就是对每次有vertex处于内半径上的cell进行再划分。从结果可以看出refine实际上就是把一个cell等分成4个cell。
 									
 								</article>
 								<hr />
