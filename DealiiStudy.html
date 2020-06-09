@@ -124,6 +124,7 @@ int main(){
 									<pre>
 int my_array[5] = {1,2,3,4,5}
 // 每个数组元素乘2
+// x是for循环的元素，my_array是范围
 for (int &x : my_array){
 	x *= 2;
 	cout &lt&lt x &lt&lt endl;
@@ -146,7 +147,7 @@ for (int &x : my_array){
 
 									< 2 >里面的数字表示的是mesh的dimension。
 									<br />
-									接下来作为一个完全不懂C++的我，我们来研究一下Triangulation和triangluation是个啥
+									我们来研究一下Triangulation和triangluation是个啥
 									<br />
 									打开Triangulation的介绍页，发现他其实有两个输入(如下)，当不输入spacedim时默认:spacedim=dim。
 									<br />
@@ -167,10 +168,57 @@ for (int &x : my_array){
 									</code>
 									遍历 active 的 cell
 									<br />
-									class中是可以定义函数的，例如
-									<br />
-										Triangulation类中定义了函数
-										begin_active()，可以把第一个active cell传给iterator
+									Triangulation类中定义了很多函数，比如
+									begin_active()，可以把第一个active cell传给iterator。
+									我们以Triangulation类中定义了的函数为例
+									<pre>
+template&ltint dim, int spacedim&gt
+unsigned int
+//函数最后的const是用来标记该函数不会更改只会读，不会改变成员变量
+Triangulation&ltdim, spacedim&gt::n_cells (const int level)const
+{
+	int n=0;
+	//auto能自动判断变量类
+	for (const auto &cell : cell_iterators_on_level(level))
+		++n;
+	return n;
+}
+									</pre>
+									这个函数是用来数level中的cell的个数哒！
+									<br/>
+									好啦讲到这里大概对Triangulation有一个大致的了解了，我们继续看example 1。
+									<hr />
+									现在我们的triangulation里面还是空空的，接下来
+									we want to fill the triangulation with a single cell for a square domain. The triangulation is the refined four times, to yield 4<sup>4</sup>=256 cells in total:
+									<br/>
+									<code>
+										GridGenerator::hyper_cube(triangulation);
+									</code>
+									<br/>
+									<code>
+										triangulation.refine_global(4);
+									</code>
+									<br/>
+									然后输出我们画好的网格
+									<br/>
+									<code>
+										std::ofstream out("grid-1.svg");
+									</code>
+									<br/>
+									<code>
+										GridOut       grid_out;
+									</code>
+									<br/>
+									<code>
+										grid_out.write_svg(triangulation, out);
+									</code>
+									<br/>
+									<code>
+										std::cout &lt&lt "Grid written to grid-1.svg" &lt&lt std::endl;
+									</code>
+									<br/>
+									以上是example1中的grid1，接下来我们来看grid2
+									
 								</article>
 								<hr />
 									
