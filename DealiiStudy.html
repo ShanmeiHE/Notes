@@ -74,6 +74,7 @@
 
 								<article>
 									<h2>恶补c++</h2>
+									首先恶补一顿c++，不然实在看不懂deal.ii在写啥……哭了
 									<h3>class是啥</h3>
 									<pre>
 class Point{
@@ -84,8 +85,8 @@ class Point{
 	}
 										
 	void printPoint(){
-		cout<< "x="<< xPos<< endl;
-		cout<< "y="<< yPos<< endl;
+		cout &lt&lt "x=" &lt&lt xPos &lt&lt endl;
+		cout &lt&lt "y=" &lt&lt yPos &lt&lt endl;
 	}
 	private:
 	int xPos;
@@ -105,7 +106,7 @@ y=20
 									template可以有typename和class两种
 									首先看typename
 									<pre>
-template<typename T> void swap(T& t1, T& t2){
+template&lttypename T&gt void swap(T& t1, T& t2){
 	T tmpT;
 	tmpT = t1;
 	t1 = t2;
@@ -114,10 +115,19 @@ template<typename T> void swap(T& t1, T& t2){
 
 int main(){
 	int num1 = 1, num = 2;
-	swap<int>(num1, num2);
+	swap&ltint&gt(num1, num2);
 	printf("num1:%d, num2:%d\n", num1, num2);
 }
 
+									</pre>
+									<h3>for循环</h3>
+									<pre>
+int my_array[5] = {1,2,3,4,5}
+// 每个数组元素乘2
+for (int &x : my_array){
+	x *= 2;
+	cout &lt&lt x &lt&lt endl;
+}
 									</pre>
 								</article>
 
