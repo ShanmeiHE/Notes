@@ -46,504 +46,127 @@
 				
 
 								<header class="major">
-									<h1>Deal.II & FEM</h1>
+									<h1>Deal.II & FEM
+										
+									</h1>
 								</header>
 
 								<!-- Text stuff -->
 									
 								<article>
-									<h2>Hall-Effect Transport in High Magnetic Fields</h2>
-									<body>
-										<div class="formula">
-											\begin{equation}J_\mu = \sigma_{\mu\nu}E_\nu\qquad\qquad(1)\end{equation}
-											\begin{equation}E_\mu = \rho_{\mu\nu}J_\nu\qquad\qquad(2)\end{equation}
-										</div>
-									</body>
-									<body>
-										<div class="formula">
-											For magnetic field <span>`\vec{B} = B\hat{z}`</span> and current density <span>`\vec{J} = J\hat{x}`</span>, 
-											the requirement that the <span>`\hat{y}`</span> component of the electric force cancels out the corresponding
-											 component of the Lorentz force (so that there is no current in the <span>`\hat{y}`</span> direction) yields
-											the standard classical expression for the Hall resistivity.
-										</div>
-									</body>
-									<body>
-										<div class="formula">
-											\begin{equation}\rho_{yx} = \frac{B}{nqc}\qquad\qquad(3)\end{equation}
-										</div>
-									</body>
+									祈求上苍这周能搞懂Deal.ii :)
+									<h2>how to run the examples of Deal.ii</h2>
+									在终端输入如下命令<br />
+									<code>
+										cmake -DDEAL_II_DIR=/Users/heshanmei/libs/deal_8.0.pre .
+									</code>
+									<br />
+									<code>
+										make
+									</code>
+									<br />
+									<code>
+										make run
+									</code>
+								</article>
+								<hr />
+
+
+								<article>
+									<h2>恶补c++</h2>
+									<h3>class是啥</h3>
+									<pre>
+class Point{
+	public;
+	void setPoint(int x, int y){
+		xPos = x;
+		yPos = y;
+	}
+										
+	void printPoint(){
+		cout<< "x="<< xPos<< endl;
+		cout<< "y="<< yPos<< endl;
+	}
+	private:
+	int xPos;
+	int yPos;
+}
+										
+int main(){
+	Point M;
+	M.setPoint(10,20);
+	M.printPoint();
+}
+结果
+x=10
+y=20
+									</pre>									</pre>
+									<h3>template是啥</h3>
+									template可以有typename和class两种
+									首先看typename
+									<pre>
+template<typename T> void swap(T& t1, T& t2){
+	T tmpT;
+	tmpT = t1;
+	t1 = t2;
+	t2 = tmpT;
+}
+
+int main(){
+	int num1 = 1, num = 2;
+	swap<int>(num1, num2);
+	printf("num1:%d, num2:%d\n", num1, num2);
+}
+
+									</pre>
+								</article>
+
+
+
+
+								<article>
+									<h2>Exmaple 1: Creating Mesh</h2>
+									Define an object for a triangulation of a two-dimensional domain
+									
+									<br />
+									<code>
+										Triangulation<2> triangulation;
+									</code>
+									<br />
+
+									< 2 >里面的数字表示的是mesh的dimension。
+									<br />
+									接下来作为一个完全不懂C++的我，我们来研究一下Triangulation和triangluation是个啥
+									<br />
+									打开Triangulation的介绍页，发现他其实有两个输入(如下)，当不输入spacedim时默认:spacedim=dim。
+									<br />
+									<code>
+										Triangulation< dim,spacedim > 
+									</code>
+									<br />
+									Triangulation是一个class(类)，这里的trianguation是Triangulation的一个对象。
+									Triangulation这个class的结构很复杂，不需要了解，我们只需要知道如何遍历所有的cell(由iterator实现)。
+									<br />
+									<code>
+										cell_iterator
+									</code>
+									遍历所有的cell
+									<br />
+									<code>
+										active_cell_iterator
+									</code>
+									遍历 active 的 cell
+									<br />
+									class中是可以定义函数的，例如
+									<br />
+										Triangulation类中定义了函数
+										begin_active()，可以把第一个active cell传给iterator
 								</article>
 								<hr />
 									
 								
 								
-								
-								<article>
-									
-									<!-- Image -->
-									<h5>Hall resitance R<sub>H</sub> & longicudinal resistance R vs. magnetic field</h5>
-									<span class="image fit"><img src="images/IntegerHallEffect.png" alt="" /></span>
-									
-									Hall resistance R<sub>H</sub>
-									<body>
-										<div class="formula">
-											\begin{equation}R_H = \frac{V_y}{Ix} = \rho_{yx} = \frac{h}{\nu e^2}\qquad\qquad(4)\end{equation}
-										</div>
-										<div class="formula">
-											where <span>`\nu`</span> is a quantum number whose meaning will be made clear soon.
-										</div>
-									</body>
-									<br />
-									<body>
-										<div class="formula">
-											Associated with each of these plateaux is a dramatic decrease in the (dissipative) longitudinal resistance <span>`R\propto \rho_{x x} \rightarrow 0`</span> which drops by as much as 13 orders of magnitude in the plateau regions, in sharp contrast to the Drude theory.
-										</div>
-									</body>
-
-									<hr />
-									we compare Eq.(3) and Eq.(4)
-									<body>
-										<div class="formula">
-											 \begin{equation}R_H = \frac{B}{n e c} = \frac{h}{e^2}\frac{BA}{hc / e}\frac{1}{nA} = \frac{h}{e^2}\frac{\Phi}{\Phi_0}\frac{1}{N_e} = \frac{h}{e^2}\frac{N_\Phi}{N_e} \qquad \qquad (5)\end{equation}
-										</div>
-										<div class="formula">
-											where A is the area of the system, <span>`N_e = nA`</span> is the number of electrons, <span>`\Phi = BA`</span> is the flux enclosed in the system, and <span>`\Phi_0 = \frac{hc}{e}`</span> is the flux quantum, and <span>`N_\Phi`</span> is the number of flux quanta in the system. 
-									   </div>										
-									</body>
-									<br />
-									<body>
-										we can identify the quantum number
-										<div class="formula">
-											\begin{equation}\nu = \frac{N_e}{N_\Phi} \qquad \qquad (6)\end{equation}
-									   </div>
-									   as the number of electrons per flux quantum in the system. For reasons that will become apparent, this ratio is commonly referred to as the (Landau-level) filling factor. 
-								</article>
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-							
-									
-								<article>
-									<hr />
-									<header class="major">
-										<h1>Why 2D is Important</h1>
-									</header>
-									<body>
-										<div class="formula">
-											resistivity(<span>`\rho`</span>) and resistance(R) for classical systems (in the shape of a hypercube) of size L are related by
-										</div>
-										<div class="formula">
-											\begin{equation}R = \rho L^{(2-d)}\qquad\qquad (7)\end{equation}
-									    </div>		
-									    <div class="formula">
-										Two dimensions (2D) is therefore special since the resistance of the sample is scale-invariant.	In 2D, R and <span>`\rho`</span> have the same dimensionality as <span>`h \/ e^2`</span>. 
-									   </div>	
-									   But R is still geometry-dependent.
-										<div class="formula">
-											\begin{equation}R = \rho \frac{L}{W}\qquad\qquad (8)\end{equation}
-										</div>	
-										This factor is the aspect ratio L/W, a dimensionless geometric property of the sample (describing its shape but not its size).
-									</body>
-									<hr />
-									<span class="image left"><img src="images/2DRRho.png" alt="" /></span>
-									<br />
-									<br />
-									The situation is very different in a Hall measurement. Assuming current flows in the horizontal (x) direction, we have
-									<body>
-										<div class = "formula">
-											\begin{equation}R_{yx} = \frac{V_y}{I_x} = \frac{E_yW}{I_x} = \frac{E_y}{I_x / W} = \frac{E_y}{J_x} = \rho_{yx}\qquad\qquad (9)\end{equation}
-										</div>
-									</body>
-									<br />
-									<br />
-								</article>
-									
-										
-										
-										
-										
-
-										
-										
-										
-										
-										
-										
-								<article>
-									<hr />
-									<header class="major">
-										<h1>Why Disorder and Localization Are Important
-									</header>
-									Paradoxically, the extreme universality of the transport properties in the quantum Hall regime occurs because of, rather than in spite of, the random disorder and uncontrolled imperfections which the devices contain. Anderson localization in the presence of disorder plays an essential role in the quantization, but this localization is strongly modified from the usual case because of the strong magnetic field.
-									<br />
-									<body>
-										<br />
-										In our study of Anderson localization we found that in 2D all states are localized even for arbi- trarily weak disorder. The essence of this weak localization effect was shown to be the logarithmic divergence of the time integral of the current “echo” associated with the quantum interference corrections to classical transport. We further saw that these quantum interference effects relied crucially on the existence of time-reversal symmetry. 
-										<div class = "formula">
-											Thus the aspect ratio <span>`L \/ W`</span> (or any other geometric parameter) does not enter the relation between <span>`R_{yx}`</span> and <span>`\rho_{yx}`</span>. This is crucial to the universality of the result. In particular, it means that one does not have to measure the physical dimensions of the sample to one part in <span>`10^{10}`</span> in order to obtain the Hall resistivity to that precision. 			
-										</div>
-										<br />
-										Therefore, there is no need to distinguish between the Hall resistance and the Hall resistivity.
-										<hr />
-										<div class = "formula">
-											In the absence of any impurities, the 2D electron gas is translationally invariant and there does not exist any preferred frame of reference.
-											As a result, we can transform to a frame of reference moving with velocity <span>`-\vec{v}`</span> relative to the lab frame. In this frame the electrons appear to be moving at velocity <span>`+\vec{v}`</span> and carrying current density
-										</div>
-										<div class = "formula">
-											\begin{equation}\vec{J} = -n e\vec{v}\qquad \qquad (10)\end{equation}
-										</div>
-										In the lab frame, the electromagnetic fields are
-										<div class = "formula">
-											\begin{equation}\begin{matrix}\vec{E} = \vec{0}\\ \vec{B} = B\hat{z}\end{matrix} \qquad\qquad(11)\end{equation}
-										</div>
-										Lorentz transformation
-										<div class = "formula">
-											\begin{equation}\begin{matrix}\frac{\vec{E}'}{c} = \gamma(\frac{\vec{E}}{c}+\vec{\beta}\times\vec{B}) - \frac{\gamma^2}{\gamma+1}\vec{\beta}(\vec{\beta}\cdot\frac{\vec{E}}{c})\\  \vec{B}' = \gamma(\vec{B}-\vec{\beta}\times\frac{\vec{E}}{c}) - \frac{\gamma^2}{\gamma+1}\vec{\beta}(\vec{\beta}\cdot\vec{B}) \end{matrix} \qquad\qquad(12)\end{equation}
-										</div>
-										
-										<div class = "formula">
-											In which, <span>`\vec{\beta} = \frac{(-\vec{v})}{c}`</span> and <span>`\gamma = \frac{1}{\sqrt{1-\left(\frac{v}{c}\right)^2}}`</span>. Since <span>`\beta`</span> is small，in moving frame, the electromagnetic fields are (to the lowest order in <span>`\beta`</span>)
-										</div>
-								
-										<div class = "formula">
-											\begin{equation}\begin{matrix}\vec{E} = -\vec{v}\times\vec{B}\\ \vec{B} = B\hat{z}\end{matrix} \qquad\qquad(13)\end{equation}
-										</div>
-										<div class = "formula">
-											This Lorentz transformation picture is precisely equivalent to the usual statement that an electric field must exist which just cancels out the Lorentz force <span>`-e\vec{v}\times\vec{B}`</span> in order for the device to carry the current straight through.
-										</div>
-										Thus we have
-										<div class = "formula">
-											\begin{equation}\vec{E} = \frac{B}{n e}\vec{J}\times\hat{B}\qquad\qquad(14)\end{equation}
-										</div>
-										The resistivity and conductivity tensors are respectively defined by Eq.(1) and Eq.(2), and from Eq.(4) we have
-										<div class = "formula">
-											\begin{equation} \rho = \frac{B}{ne}\left(\begin{matrix} 0 & 1\\ -1& 0\end{matrix}\right) \qquad\qquad(15)\end{equation}
-										</div>
-										<div class = "formula">
-											\begin{equation} \sigma = \frac{ne}{B}\left(\begin{matrix} 0 & -1\\ 1& 0\end{matrix}\right) \qquad\qquad(16)\end{equation}
-										</div>
-										<div class = "formula">
-											Notice that, paradoxically, the system looks insulating since <span>`\sigma_{x x} =0 `</span> and yet it also looks like a perfect conductor since <span>`\rho_{x x} = 0`</span>.
-										</div>
-									</body>
-								</article>
-
-									
-								<article>
-									<hr />
-									<header class="major">
-										<h1>Classical and Semiclassical Dynamics
-									</header>
-									The classical equations of motion for a particle of charge −e moving in 2D under the influence of the Lorentz force
-									<div class = "formula">
-										\begin{equation}\begin{matrix}m_e \ddot{x} = -\frac{eB}{c}\dot{y}\\m_e \ddot{y} = \frac{eB}{c}\dot{x} \end{matrix}\qquad\qquad(17)\end{equation}
-									</div>
-									The general solution
-									<div class = "formula">
-										\begin{equation}\vec{r} = R[cos(\omega_c t+\delta),sin(\omega_c t+\delta)]\qquad\qquad(18)\end{equation}
-									</div>
-									<div class = "formula"><span>`\delta`</span> is an arbitrary phase. And the classical cyclotron frequency is</div>
-									<div class = "formula">
-										\begin{equation}\omega_c= \frac{eB}{m_ec}\qquad\qquad(19)\end{equation}
-									</div>
-									tangential speed controls the radius.
-									<div class = "formula">
-										\begin{equation}v =R\omega_c\qquad\qquad(20)\end{equation}
-									</div>
-									For a nonrelative classical electron, the Lagrangian is
-									<div class = "formula">
-										\begin{equation}\mathcal{L} =\frac{1}{2}m_e\dot{x}^\mu\dot{x}^\mu - e\dot{x}^\mu A^\mu\qquad\qquad(21)\end{equation}
-									</div>
-									Euler-Lagrange equation of motion
-									<div class = "formula">
-										\begin{equation}m_e\ddot{x}^\nu = -e[\partial_\nu A^\mu-\partial_\mu A^\nu]\dot{x}^\mu\qquad\qquad(22)\end{equation}
-									</div>
-									Canonical momentum
-									<div class = "formula">
-										\begin{equation}p^\mu = m_e \dot{x}^\mu-eA^\mu\qquad\qquad(23)\end{equation}
-									</div>
-									Hamiltonian
-									<div class = "formula">
-										\begin{equation}H = \frac{1}{2m_e}\left(p^\mu+eA^\mu\right)^2\qquad\qquad(24)\end{equation}
-									</div>
-									<hr />
-									<div class = "formula">
-										we considered wave packets <span>`\Psi_{\vec{R}(t),\vec{K}(t)}(\vec{r},t)`</span> made up of a linear superposition of Bloch waves. These packets are large on the scale of the de Broglie wavelength so that they have a well-defined central wave vector <span>`\vec{K}(t)`</span>, but small on the scale of everything else (external potentials, etc.) so that they simultaneously can be considered to have well-defined mean position <span>`\vec{R}(t)`</span>. We then argued that the solution of the Schrödinger equation in this semiclassical limit gives a wave packet whose parameters <span>`\vec{K}(t)`</span> and <span>`\vec{R}(t)`</span> obey the appropriate analog of the classical Hamilton equations of motion,
-									</div>
-									<div class = "formula">
-										\begin{equation}\dot{R}^\mu = \frac{\partial \langle \Psi_{\vec{R},\vec{K}}|H| \Psi_{\vec{R},\vec{K}}\rangle}{\partial(\hbar K^\mu)}\qquad\qquad(25)\end{equation}
-										\begin{equation} \hbar\dot{K}^\mu = \frac{\partial \langle \Psi_{\vec{R},\vec{K}}|H| \Psi_{\vec{R},\vec{K}}\rangle}{\partial R^\mu} \qquad\qquad(26)\end{equation}
-									</div>
-									<div class = "formula">
-										For weak fields and fast electrons, the radius of these circular orbits will be large compared with the size of the wave packets, and the semiclassical approximation will be valid. However, at strong fields, the approximation begins to break down because the orbits are too small and because
-										Fermi energy becomes a significant (large) energy. Thus we anticipate that the semiclassical regime requires that the cyclotron energy be much smaller than the Fermi energy, <span>\begin{equation}\hbar \omega_c \ll \epsilon_R\qquad\qquad(27)\end{equation}</span>.
-									</div>
-								</article>	
-									
-								
-								<article>
-									<hr />
-									<header class="major">
-										<h1>Quantum Dynamics in Strong B Fields
-									</header>
-									First, we choose <b>Landau gauge</b> for the vector potential
-									<div class = "formula">
-										\begin{equation}\vec{A}(\vec{r}) = - xB\hat{y}\qquad\qquad(28)\end{equation}
-									</div>
-									The Hamiltonian can thus be written in the Landau gauge as
-									<div class = "formula">
-										\begin{equation}H = \frac{1}{2m_e}\left[p_x^2+\left(p_y-eBx\right)^2\right] \qquad\qquad(29)\end{equation}
-									</div>
-									Taking advantage of the translation symmetry in the y direction, let us write the wave function in the form
-									<div class = "formula">
-										\begin{equation} \psi_k(x,y) = e^{iky}f_k(x) \qquad\qquad(30)\end{equation}
-									</div>
-									<div class = "formula">
-										Since it's an eigenstate of <span>`p_y`</span>, we can make the replacement
-									</div>
-									<div class = "formula">
-										\begin{equation} h_kf_k(x)=\epsilon_kf_k(x) \qquad\qquad(31)\end{equation}
-									</div>
-									<div class = "formula">
-										\begin{equation} h_k\equiv \frac{p_x^2}{2m_e}+\frac{1}{2m_e}\left(\hbar k-eBx\right)^2 \qquad\qquad(32)\end{equation}
-									</div>
-									This is simply a 1D displaced harmonic oscillator
-									<div class = "formula">
-										\begin{equation} h_k\equiv \frac{p_x^2}{2m_e}+\frac{1}{2}m_e\omega_c^2\left(x-\frac{\hbar k}{eB}\right)^2 \qquad\qquad(33)\end{equation}
-									</div>
-									<div class = "formula">
-										The central position <span>\begin{equation}X_k = \frac{\hbar k}{eB}\end{equation}</span> is determined by the y momentum quantum number.
-									</div>
-									Thus for each plane wave chosen for the y direction there will be an entire family of energy eigenvalues
-									<div class = "formula">
-										\begin{equation} \epsilon_{kn} =  \left(n+\frac{1}{2}\right)\hbar\omega \qquad\qquad(33)\end{equation}
-									</div>
-									The corresponding (unnormalized) eigenfunctions are
-									<div class = "formula">
-										\begin{equation} \psi_{nk}(\vec{r}) = e^{iky}H_n\left( \sqrt{\frac{eB}{\hbar}}(x-\frac{\hbar k}{eB}) \right)e^{-\frac{eB}{2\hbar}\left(x-\frac{\hbar k}{eB}\right)^2} \qquad\qquad(33)\end{equation}
-									</div>
-									<div class = "formula">
-										where <span>`H_n`</span> is the n-th Hermite polynomial displaced to the new central position <span>`X_k`</span>
-									</div>
-									These harmonic oscillator levels are called <b>Landau levels</b>. 
-									<hr />
-									We assume periodic boundary conditions in the y direction. Because of the vector potential, it is impossible to simultaneously have periodic boundary conditions in the x direction.
-									However, since the basis wave functions are harmonic oscillator polynomials multiplied by strongly converging Gaussians, they rapidly vanish for positions away from the center position X<sub>k</sub>.
-									<br />
-									<br />
-									<div class = "formula">
-										Let us suppose that the sample is rectangular with dimensions <span>`L_x`</span>, <span>`L_y`</span>, and suppose that <span>`0 < x < L_x`</span>. Since the center position <span>`X_k`</span> inside the sample, we have 
-										<span>\begin{equation} 0 < \frac{\hbar k}{eB} < L_x\qquad\qquad(34)\end{equation}</span>
-									</div>
-									Therefore, the total number of states in each Landau level 
-									<div class = "formula">
-										\begin{equation} N = \sum_k 1 = \int_{0}^{\frac{ eB L_x}{\hbar}} \frac{L_y}{2\pi}dk =\frac{eB L_xL_y}{h} = N_\Phi \qquad\qquad(35)\end{equation}
-									</div>
-									is the number of flux quanta penetrating the sample.
-									<div class = "formula">
-										where <span>`\Phi_0=\frac{h}{e}`</span>, and <span>`N_\Phi = \frac{\Phi}{\Phi_0}`</span>.
-									</div>
-									<div class = "formula">
-										Thus there is one state per Landau level per flux quantum. As a result, when the filling factor <span>`\nu`</span> of Eq. (6) takes an integer value, we have in the ground state exactly <span>`\nu`</span> (lowest-energy) Landau levels completely filled, and all higher Landau levels empty.
-										Such a state is clearly special, as there is a gap for excitations in the bulk.
-									</div>
-									The spacing between the centers
-									<div class = "formula">
-										\begin{equation}\Delta = \frac{\hbar\Delta_k}{eB}  = \frac{h}{eBL_y}\qquad\qquad(36) \end{equation}
-									</div>
-									<div class = "formula">
-										When <span>\begin{equation}x = \frac{\hbar k}{eB}\pm \sqrt{\frac{2\hbar}{eB}}\qquad\qquad(37)\end{equation}</span>
-									</div>
-									The Gaussians value is 1/e of the value in the center position. We can contrast Eq.(36) and Eq.(37)
-									<div class = "formula">
-										\begin{equation}\frac{\Delta x}{\Delta} =  \sqrt{\frac{eB}{\hbar}}\frac{L_y}{\pi}  \qquad\qquad(38) \end{equation}
-									</div>
-									It's a vastly large number, thus the different basis states are strongly overlapping.
-									<hr />
-									<div class = "formula">
-										Having now found the eigenfunctions for an electron in a strong magnetic field, we can relate them back to the semiclassical picture of wave packets undergoing circular cyclotron motion. Consider an initial semiclassical wave packet located at some position and having some specified mechanical momentum <span>`\frac{h\vec{K}}{2\pi}`</span>.
-										In the semiclassical limit, we have
-										\begin{equation}\left(n+\frac{1}{2}\right)\hbar\omega_c \sim \frac{\hbar^2 K^2}{2m_e}\qquad\qquad(39)\end{equation}
-										Hence this particle packet will be made up of a linear combination of a large number of different Landau-level states centered around 
-										\begin{equation} \overline{n} = \frac{\hbar K^2}{2m_e\omega_c} \qquad\qquad(40)\end{equation}
-										\begin{equation} \begin{aligned} 
-										\Psi(\vec{r},t) &= \frac{L_y}{2\pi}\sum_n\int dk a_n(k)\psi_{nk}(\vec{r})e^{-i\left(n+\frac{1}{2}\right)\omega_ct}\\
-										&= \frac{L_y}{2\pi}\sum_n\int dk a_n(k) e^{iky}H_n\left( \sqrt{\frac{eB}{\hbar}}(x-\frac{\hbar k}{eB}) \right)e^{-\frac{eB}{2\hbar}\left(x-\frac{\hbar k}{eB}\right)^2} e^{-i\left(n+\frac{1}{2}\right)\omega_ct}\\
-										\end{aligned} \qquad\qquad(41)\end{equation}
-									</div>
-									If one works through the details, one finds that the motion is indeed circular and corresponds to the expected semiclassical cyclotron orbit.
-									<hr />
-									For simplicity we will restrict the remainder of our discussion mostly to the lowest Landau level
-									<div class = "formula">
-										\begin{equation}\psi_k(\vec{r}) = \left(\frac{1}{\sqrt{\pi}lL_y}\right)^{\frac{1}{2}}e^{iky}e^{-\frac{1}{2l^2}\left(x-kl^2\right)^2}\qquad\qquad(42)\end{equation}
-										where <span>\begin{equation}l = \sqrt{\frac{\hbar}{eB}}\qquad\qquad(43)\end{equation}</span>
-									</div>
-									and every state has the same energy eigenvalue <span>\begin{equation}\epsilon_k = \frac{1}{2}\hbar\omega_c\qquad\qquad(44)\end{equation}</span>
-									<br />
-									the current density in the k-th basis state is
-									<div class = "formula">
-										\begin{equation} \langle \vec{J}(x,y)\rangle = -\frac{e}{m_e}\psi_k^*(x,y)\left[-i\hbar\nabla +e\vec{A}(x,y) \right]\psi_k(x,y) \qquad\qquad(45)\end{equation}
-									</div>
-									<div class = "formula">
-										\begin{equation} \begin{aligned}
-										\langle I_y \rangle &= -\frac{e}{m_e\sqrt{\pi}lL_y}\int_{-\infty}^{+\infty}dx\ e^{-\frac{1}{l^2}\left(x-kl^2\right)^2}\left[-i\hbar k - eBx \right] \\
-										&= -\frac{e\omega_c}{\sqrt{\pi}lL_y}\int_{-\infty}^{+\infty}dx\ e^{-\frac{1}{l^2}\left(x-kl^2\right)^2}(x-kl^2)) \\
-										 \end{aligned} \qquad\qquad(46)\end{equation}
-									</div>
-									<div class = "formula">
-										We see from the integrand that the current density is anti-symmetric about the peak of the Gaussian at <span>`X_k = kl^2`</span> and hence the total current vanishes. This anti-symmetry is the remnant of the semiclassical circular motion.
-										This could perhaps be anticipated from the observation that the energy of the Landau-level states is independent of the wave vector k, thus the group velocity is given by
-										\begin{equation} v_y=\frac{1}{\hbar}\frac{\partial \epsilon_{kn}}{\partial k} =0 \qquad\qquad(47)\end{equation}
-									</div>
-									<hr />
-									Let us now consider the case of a uniform electric field pointing in the x direction and giving rise to the potential energy
-									<div class = "formula">
-										\begin{equation} V(\vec{r})=eEx \qquad\qquad(48)\end{equation}
-									</div>
-									The Hamiltonian in Eq.(33) becomes
-									<div class = "formula">
-										\begin{equation}\begin{aligned}
-										h_k &= \frac{p_x^2}{2m_e}+\frac{1}{2}m_e\omega_c^2(x-kl^2)^2+eEx \\
-										&= \frac{p_x^2}{2m_e}+\frac{1}{2}m_e\omega_c^2(x-kl^2)^2+eE(x-kl^2) +\frac{e^2E^2}{2m_e\omega_c^2}-\frac{e^2E^2}{2m_e\omega_c^2} +eEkl^2 \\
-										&= \frac{p_x^2}{2m_e}+\frac{1}{2}m_e\omega_c^2\left(x-kl^2+\frac{eE}{m_e\omega_c^2}\right)^2+\left(eEkl^2-m_e\left(\frac{eE}{m_e\omega_c}\right)^2\right)+\frac{1}{2}m_e\left(\frac{eE}{m_e\omega_c}\right)^2\\
-										&= \frac{p_x^2}{2m_e}+\frac{1}{2}m_e\omega_c^2\left(x-kl^2+\frac{eE}{m_e\omega_c^2}\right)^2+eE\left(kl^2-\frac{eE}{m_e\omega_c^2}\right)+\frac{1}{2}m_e\left(\frac{eE}{m_e\omega_c}\right)^2\\
-										\end{aligned}\qquad\qquad(49)
-										\end{equation}
-									</div>
-									we see that the oscillator is now centered at the new (and slightly shifted) position
-									<div class = "formula">
-										\begin{equation} X_k' =kl^2-\frac{eE}{m_e\omega_c^2} = X_k-\frac{eE}{m_e\omega_c^2} \qquad\qquad(50)\end{equation}
-									</div>
-									and the energy eigenvalue
-									<div class = "formula">
-										\begin{equation} \epsilon_{kn} =\left(n+\frac{1}{2}\right)\hbar\omega_c + eEX_k' + \frac{1}{2}m_e\overline{v}^2 \qquad\qquad(51)\end{equation}
-										where the drift velocity is <span>`\overline{v}\equiv \frac{E}{B}`</span>.
-									</div>
-									This result can be derived either by explicitly doing the integral for the current or by noting that the wave-packet group velocity is
-									<div class = "formula">
-										\begin{equation}
-										\frac{1}{\hbar}\frac{\partial \epsilon_{kn}}{\partial k} = \frac{eE}{\hbar}\frac{\partial X_k'}{\partial k} = \frac{eE}{\hbar}\frac{\partial X_k}{\partial k} = \overline{v}\qquad\qquad(52)
-										\end{equation}
-									</div>
-									the perfect anti- symmetry of the current distribution is destroyed and there is a net current
-									<div class = "formula">
-										\begin{equation} \begin{aligned}
-										\langle I_y \rangle &= -e\frac{\overline{v}}{L_y}
-										 \end{aligned} \qquad\qquad(53)\end{equation}
-									</div>
-								</article>
-									
-								<article>
-									<hr />
-									<header class="major">
-										<h1>Integer Quantum Hall Effect Edge State
-									</header>
-									
-									Now that we understand drift in a uniform electric field, we can consider the problem of electrons confined in a Hall bar of finite width by a non-uniform electric field. 
-									For simplicity, we will consider the situation where the potential V(x) is smooth on the scale of the magnetic length.
-					
-									We see that the group velocity
-									<div class = "formula">
-										\begin{equation} \vec{v}_k = \frac{1}{\hbar}\frac{\partial\epsilon_{kn}}{\partial k}\hat{y} \approx \frac{el^2}{\hbar}\left.\frac{d V(x)}{dx}\right|_{x = X_k}\hat{y}\qquad\qquad(56)\end{equation}
-									</div>
-									<h5> Landau-level dispersions in the presence of a confining potential, for a sample with Hall bar geometry </h5>
-									<span class="image left"><img src="images/ek.png" alt="" /></span>
-									This means that in the ground state there are edge currents of opposite sign flowing in the sample. The semiclassical interpretation of these currents is that they represent “skipping orbits” in which the circular cyclotron motion is interrupted by collisions with the walls at the edges.
-									<br />
-									<br />
-									<span class="image right"><img src="images/edgestate.png" alt="" /></span>
-									
-									
-									Because momentum in a magnetic field corresponds to position, the edges are essentially real-space realizations of the Fermi surface.
-									A Hall voltage drop across the sample in the x direction corresponds to a difference in electrochemical potential between the two edges.
-									This has the effect of increasing the number of electrons in skipping orbits on one edge of the sample and/or decreasing the number on the other edge.
-									To calculate this current we have to add up the group velocities of all the occupied states,
-									<div class = "formula">
-										\begin{equation} 
-										I = -\frac{e}{L_y}\int_{-\infty}^{+\infty} dk \frac{L_y}{2\pi\hbar}\frac{\partial \epsilon_k}{\partial k}n_k
-										\qquad\qquad(57)\end{equation}
-									</div>
-									<div class = "formula">
-										You are certainly puzzled about why there is not a '2' coeficient here, because there are two electrons in a state.
-										Noticing that the electrons are in a strong B field, so we should consider Zeeman splitting, which cause the a state split into two states.
-										Therefore, the states with <span>`\epsilon_k`</span> energy are actually two states with a little different energy around <span>`\epsilon_k`</span>. And we regard them as two different states, so there isn't a '2' coefficient in the Eq. (57).
-
-									</div>
-									
-									where for the moment we assume that, in the bulk, only a single Landau level is occupied and n<sub>k</sub> is the probability that state k in that Landau level is occupied. Assuming zero temperature and noting that the integrand is a perfect derivative, we have
-									<div class = "formula">
-										\begin{equation} 
-										I = -\frac{e}{h}\int_{\mu_R}^{\mu_L} d\epsilon = -\frac{e}{h}[\mu_R-\mu_L]
-										\qquad\qquad(58)\end{equation}
-									</div>
-									The definition of the Hall voltage drop is
-									<div class = "formula">
-										\begin{equation} 
-										(-e)V_H = (-e)[V_R-V_L] = [\mu_R-\mu_L]
-										\qquad\qquad(59)\end{equation}
-									</div>
-									Hence
-									<div class = "formula">
-										\begin{equation} 
-										I = \nu \frac{e^2}{h}V_H
-										\qquad\qquad(60)\end{equation}
-									</div>
-									<div class = "formula">
-										where we have now allowed for the possibility that <span>`\nu`</span> different Landau levels are occupied in the bulk and hence there are ν separate edge channels contributing to the current.
-									</div>
-									we have the desired results
-									<div class = "formula">
-										\begin{equation} \begin{aligned}
-										&\sigma_{xx} = 0\\
-										&\sigma_{xy} = \nu\frac{e^2}{h}
-										\end{aligned}\qquad\qquad(61)\end{equation}
-									</div>
-									<hr />
-									So far we have been ignoring the possible effects of disorder. 
-									Remarkably, in the QHE case, the backscat- tering is essentially zero in very wide samples. 
-									In the case of the Hall bar, scattering into a backward-moving state would require transfer of the electron from one edge of the sample to the other, since the edge states are spatially separated.
-									In short, there can be nothing but forward scattering.
-									An incoming wave given by Eq.(62)
-									<div class = "formula">
-										\begin{equation}
-										\psi(x,y) = \frac{1}{\sqrt{L_y}} e^{iky}f_k(x) \qquad\qquad(62)\end{equation}
-										at most suffering a simple phase shift <span>`\delta_k`</span> as it continues forward:
-										\begin{equation}
-										\psi(x,y) = \frac{1}{\sqrt{L_y}} e^{i\delta_k}e^{iky}f_k(x) \qquad\qquad(63)\end{equation}
-									</div>
-									This is because no other states of the same energy are available.
-								</article>
-									
-								<article>
-									<hr />
-									<header class="major">
-										<h1>Semiclassical Percolation Picture of the IQHE
-									</header>
-									We take the magnetic field to be very large so that the magnetic length is small on the scale over which the potential varies. In addition, we ignore the Coulomb interactions among the electrons.
-
-									For the case of a constant electric field, the wave functions were plane waves running along lines of constant potential energy and having a width perpendicular to them which is very small and on the order of the magnetic length.
-									the wave functions were plane waves running along lines of constant potential energy and having a width perpendicular to them which is very small and on the order of the magnetic length. Landau level to continuously vary its kinetic energy. Hence energy conservation restricts its motion to regions of constant potential energy.
-									<span class="image fit"><img src="images/percolation.jpg" alt="" /></span>
-									This picture is an illustration of filling a Landau level with electron liquid, as the (average) electron density or Fermi energy εF increases. 
-									<br />
-									(a) Low density, below the percolation threshold.
-									<br />
-									(b) At the percolation threshold. 
-									<br />
-									(c) The electron distribution when the Fermi energy is above but very close to the percolation threshold. The grey area indicates the region occupied by electrons in the random potential. Backscattering between counter-propagating edge states becomes possible as they come close together in space, as indicated by the dashed line representing a quantum tunneling path connecting the two edges where they approach each other. The white regions in the interior are “mountain peaks” which are above “sea level” and therefore unoccupied by electrons. Their shorelines have finite length, and so local excitations have at least a small gap and cannot cause dissipation for weak electric fields at low frequencies.
-									<br />
-									(d) Above the percolation threshold.
-								</article>
-							</section>
-
+						</section>		
 					</div>
 
 				<!-- Footer -->
