@@ -253,9 +253,132 @@ void second_grid()
 									
 								</article>
 								<hr />
+								<article>
+									<h2>Example2:</h2>
+									首先接着Ex1，做 Mesh generation。现在我们有了grid，和grid的vertex的坐标。
+									除此之外我们还需要一些信息，如vertex/line/cell的自由度信息。
+									<br>
+									然后进入Ex2的正题: Creation of a DoFHandler。<br>
+									DoFHandler是一个class template
+									<pre>
+const FE_Q&lt2&gt finite_element(1);
+dof_handler.distribute_dofs(finite_element);
+									</pre>
+									<br>
+									FE_Q是个class template
+									<br>
+									<code>template&ltint dim,int spacedim =dim&gt class FE_Q&ltdim,spacedim&gt</code>
+									<br>
+									看了一下shape function，感觉shape function类似于插值函数，确定每个点的比重，Q1插值的话就是每个点比重为1。
+									<br>
+									distribute_dofs
+									<br>
+									<code>void DoFHandler&ltdim, spacedim&gt::distribute_dofs( const FiniteElement&ltdim,spacedim&gt& fe)</code>
+									<br>
+									Now that we have associated a degree of freedom with a global number to each vertex.
+
+								</article>
+		
+								<hr />
+								<article>
+									<h2>Example3:Solve 2D Laplace Equation</h2>
+									Poisson's Equation
+									<div class="formula">
+										\begin{equation}
+										\begin{aligned}
+										&-\Delta u=f\qquad &in\ \Omega\\
+										&u=0\qquad &on\ \partial\Omega\\
+										\end{aligned}
+										\end{equation}
+									</div>
+									<div class="formula">
+										we can integrate over the domain <span>`\Omega`</span> and get
+										\begin{equation}
+										\begin{aligned}
+										& -\int_\Omega \varphi \Delta u = \int_\Omega \varphi f \\\\
+										& -\int_\Omega \varphi \nabla\cdot(\nabla u) = -\int_\Omega \left[\nabla\cdot(\varphi\nabla u)-\nabla u\cdot\nabla \varphi \right]\\
+										& = -\int_\Omega \nabla\cdot(\varphi\nabla u)  +\int_\Omega \nabla u\cdot\nabla \varphi \\
+										& = -\int_{\partial\Omega} \vec{n}\cdot(\varphi\nabla u)  +\int_\Omega \nabla u\cdot\nabla \varphi \\\\
+										&\int_\Omega \varphi f = -\int_{\partial\Omega} \vec{n}\cdot(\varphi\nabla u)  +\int_\Omega \nabla u\cdot\nabla \varphi 
+										\end{aligned}
+										\end{equation}
+									</div>
+									since 
+									<div class="formula">
+										\begin{equation}
+										\begin{aligned}
+										
+										&u=0\qquad &on\ \partial\Omega\\
+										\end{aligned}
+										\end{equation}
+									</div>
+									we have
+									<div class="formula">
+										\begin{equation}
+										\begin{aligned}
+										&\int_\Omega \varphi f = \int_\Omega \nabla u\cdot\nabla \varphi 
+										\end{aligned}
+										\end{equation}
+									</div>
+
+									<div class="formula">
+										<span>`\varphi_i(\vec{x})`</span> are the finite element shape functions we will use.
+									</div>
+									<div class="formula">
+										\begin{equation}
+										\begin{aligned}
+										&\int_\Omega \varphi_i f = \int_\Omega \nabla u\cdot\nabla \varphi_i \qquad\qquad i=0,...,N-1
+										\end{aligned}
+										\end{equation}
+									</div>
+
+									Of course we can't find such a function u on a computer in the general case, and instead we seek an approximation
+									<div class="formula">
+										\begin{equation}
+										\begin{aligned}
+										u_h(\vec{x})=\sum_j U_j\varphi_j(\vec{x})
+										\end{aligned}
+										\end{equation}
+									</div>
 									
-								
-								
+									so that
+									<div class="formula">
+										\begin{equation}
+										\begin{aligned}
+										&\int_\Omega \varphi_i f = \sum_jU_j\int_\Omega \nabla \varphi_i\cdot\nabla \varphi_j 
+										\end{aligned}
+										\end{equation}
+									</div>
+
+									With this, the problem is to find a vector U so that
+									<div class="formula">
+										\begin{equation}
+										\begin{aligned}
+										&AU=F\\
+										&A_{ij} = \int_\Omega \nabla \varphi_i\cdot\nabla \varphi_j \\
+										&F_i=\int_\Omega \varphi_i f \\
+										\end{aligned}
+										\end{equation}
+									</div>
+									<div class="formula">
+										Then we split the integral over `\Omega` into integrals over all cells,
+									</div>
+									<div class="formula">
+										\begin{equation}
+										\begin{aligned}
+										&A_{ij} = \int_\Omega \nabla \varphi_i\cdot\nabla \varphi_j = \sum_{K\in\Omega}\int_{K} \nabla\varphi_i\cdot\nabla \varphi_j \\
+										&F_i=\int_\Omega \varphi_i f = \sum_{K\in\Omega}\int_{K} \varphi_i f \\
+										&A_{ij}^K = \int_{K} \nabla\varphi_i\cdot\nabla \varphi_j \approx \sum_q \nabla\varphi_i(\vec{x}^K_q)\cdot\nabla \varphi_j(\vec{x}^K_q) w^K_q \\
+										&F_i^K= \sum_{K\in\Omega}\int_{K} \varphi_i f \approx \sum_q \varphi_i(\vec{x}^K_q) f(\vec{x}^K_q) w^K_q \\
+										\end{aligned}
+										\end{equation}
+									</div>
+									<div class="formula">
+										`\vec{x}_q^K` is the q<sup>th</sup> quadrature point on the K<sup>th</sup> cell
+
+									</div> 
+
+							</article>
 						</section>		
 					</div>
 
