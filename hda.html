@@ -1,0 +1,242 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+<html>
+	<head>
+		<title>Integer Quatum Hall Effect</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<head>
+		<script type="text/javascript" async
+			src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async>
+		</script>
+	</head>
+
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Notes</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">INTRO</a></li>
+							<li><a href="QuantumHallEffecct.html">NOTES-IQHE</a></li>
+							<li><a href="DealiiStudy.html">NOTES-Deal.II</a></li>
+							<li class="active"><a href="hda.html">NOTES-HDA</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<!-- Post -->
+							<section class="post">
+
+
+				
+
+								<header class="major">
+									<h1>Hemisphere Deflector Analyzer</h1>
+								</header>
+
+								<!-- Text stuff -->
+									
+				
+								<article>
+									<h2>电子光学</h2>
+									<body>
+										<span class="image left"><img src="images/electronicPhotonics.png" alt="" /></span>
+										<div class="formula">
+											电子从<span>`\varphi_1`</span>过渡到<span>`\varphi_2`</span>，其中<span>`\varphi_1 \< \varphi_2`</span>。
+											两平面间的电场强度为
+											\begin{equation} E=\frac{\varphi_2-\varphi_1}{d} \end{equation}
+											在I和II区间内的电子速度分别为
+											\begin{equation} v_1 = \sqrt{\frac{2e\varphi_1}{m}} \qquad v_2 = \sqrt{\frac{2e\varphi_2}{m}} \end{equation}
+											因为交界面处电场强度方向垂直于平面<span>`F_1,F_2`</span>，所以电子经过界面后平行界面的速度分量不变
+											\begin{equation} v_1 sin\alpha_1 = v_2 sin\alpha_2 \end{equation}
+											所以有
+											\begin{equation} \frac{sin\alpha_1}{sin\alpha_2} = \frac{v_2}{v_1} = \sqrt{ \frac{\varphi_1}{\varphi_2} } = n_{12} \end{equation}
+											这就是电子光学中的折射定律，可见电子光学中<span>`\sqrt{\varphi}`</span>对应于光学中的折射率n。
+											该体系中要求<span>`F_1`</span>和<span>`F_2`</span>之间的过度区域无限薄。
+
+										</div>
+									</body>
+								</article>
+								<hr />
+								
+								<article>
+									<h2>轴对称静电场的数学表达式</h2>
+									<body>
+										<div class="formula">
+											一些可能会用到的公式
+											\begin{equation} \nabla\varphi = \mathbf{e}_1 \frac{\partial \varphi}{h_1\partial q_1} + \mathbf{e}_2 \frac{\partial \varphi}{h_2\partial q_2} + \mathbf{e}_3 \frac{\partial \varphi}{h_3\partial q_3} \end{equation}
+											\begin{equation} \nabla\cdot\mathbf{D} = \frac{1}{h_1h_2h_3}\left[ \frac{\partial}{\partial q_1}\left(h_2h_3D_1\right)+ \frac{\partial}{\partial q_2}\left(h_1h_3D_2\right) + \frac{\partial}{\partial q_3}\left(h_1h_2D_3\right) \right] \end{equation}
+											\begin{equation} \nabla\times\mathbf{A} = \left| \begin{matrix}  \frac{\mathbb{e}_1}{h_2h_3} &  \frac{\mathbb{e}_2}{h_1h_3}  & \frac{\mathbb{e}_3}{h_1h_3}  \\ \frac{\partial }{\partial q_1} & \frac{\partial }{\partial q_2} & \frac{\partial }{\partial q_3} \\ h_1A_1 & h_2A_2 & h_3A_3  \end{matrix} \right| \end{equation}
+											\begin{equation} \nabla^2 \varphi = \frac{1}{h_1h_2h_3}\left[ \frac{\partial}{\partial q_1}\left(\frac{h_2h_3}{h_1}\frac{\partial\varphi}{\partial q_1}\right)+ \frac{\partial}{\partial q_2}\left(\frac{h_1h_3}{h_2}\frac{\partial\varphi}{\partial q_2}\right)+ \frac{\partial}{\partial q_3}\left(\frac{h_1h_2}{h_3}\frac{\partial\varphi}{\partial q_3}\right)\right] \end{equation}
+											拉美系数
+											\begin{equation} x = f_1(q_1, q_2, q_3 )\qquad y = f_2(q_1, q_2, q_3 ) \qquad z = f_3(q_1, q_2, q_3 )\end{equation}
+											\begin{equation} h_i^2 = \left(\frac{\partial x}{\partial q_i}\right)^2 + \left(\frac{\partial y}{\partial q_i}\right)^2 + \left(\frac{\partial z}{\partial q_i}\right)^2  \end{equation}		
+											圆柱坐标系的拉美系数
+											\begin{equation} h_1 = 1\qquad h_2 = r\qquad h_3 = 1 \end{equation}
+										</div>
+									</body>
+								</article>
+								<hr />
+								
+								<article>
+									<h2>轴对称电场的幂级数表达式</h2>
+									<body>
+										<div class="formula">
+											由于场的旋转对称性
+											\begin{equation} \varphi(r,z) = \varphi(-r,z) \end{equation}
+											所以电位<span>`\varphi`</span>展开的幂级数只有偶次幂项
+											\begin{equation} \varphi(r,z) = \sum_{k=0}^\infty a_{2k}(z)r^{2k} \end{equation}
+											拉普拉斯方程
+											\begin{equation} \nabla^2\varphi = \frac{\partial^2 \varphi}{\partial z^2} + \frac{1}{r}\frac{\partial\varphi}{\partial r}+ \frac{\partial^2\varphi}{\partial r^2} = 0 \end{equation}
+											将级数代入可得
+											\begin{equation} \sum_{k=0}^\infty (2k)^2a_{2k}(z)r^{2k-2} + \sum_{k=0}^\infty a''_{2k}(z)r^{2k} = 0 \end{equation}
+											r的各种幂次项应为0
+											\begin{equation} a''_{2k-2}(z)+(2k)^2a_{2k}(z) = 0 \end{equation}
+											可得递推公式
+											\begin{equation} a_{2k}(z) = -\frac{1}{(2k)^2}a''_{2k-2}(z) \end{equation}
+											\begin{equation} a_{2k} = (-1)^k\frac{a_0^{(2k)}}{(2k)^2\times 6^2\times 4^2\times 2^2} = (-1)^k\frac{a_0^{(2k)}}{2^{2k}(k!)^2} \end{equation}
+											\begin{equation} \varphi(z,r) = \sum_{k=0}^\infty (-1)^{2k} \end{equation}
+											\begin{equation} \varphi(z,0) = a_0(z) = V(z) \end{equation}
+											所以<span>`a_0(z)`</span>就是轴上的电位分布，则有
+											\begin{equation} \varphi(r,z) = \sum_{k=0}^\infty (-1)^k\frac{1}{(k!)^2} \left(\frac{r}{2}\right)^{2k} V^{(2k)}(z) = V(z) - \frac{1}{4}V''(z)r^2+\frac{1}{64}V''''(z)^4+...+ \end{equation}
+											此公式是电子光学的基本公式，被称为Scherzer公式。然而，实际上，只有在r比较小的区域，此级数收敛得才快，这时取级数的前几项就可以确定空间的场分布。如果想决定离轴较远处的场分布，就很不方便了。
+										</div>
+									</body>
+								</article>
+								<hr />
+
+								<article>
+									<h2>轴对称电场的积分表达式</h2>
+									<body>
+										<div class="formula">
+											分离变量法
+											\begin{equation} \varphi(r,z) = R(r)Z(z) \end{equation}
+											代入拉普拉斯方程
+											\begin{equation} k^2\frac{1}{Rr}\frac{d}{dr}\left(r\frac{dR}{dr}\right) = -\frac{1}{Z}\frac{d^2Z}{dz^2} \end{equation}
+											设两边等式等于的常数为<span>`k^2`</span>，得到
+											\begin{equation} \frac{d^2Z}{dz^2} + k^2Z = 0 \end{equation}
+											\begin{equation} \frac{d^2R}{dr^2} + \frac{1}{r}\frac{dR}{dr} - k^2R = 0 \end{equation}
+											化简得到
+											\begin{equation} \frac{d^2}{d(ikr)^2} + \frac{1}{ikr}\frac{dR}{d(ikr)} +R =0 \end{equation}
+											上式是零阶贝塞尔方程，其解的一般形式为
+											\begin{equation} R(r) = C_1 J_0(ikr) + C_2N_0(ikr) \end{equation}
+											其中<span>`J_0(ikr)`</span>为零阶贝塞尔函数，<span>`N_0(ikr)`</span>为零阶诺依曼函数发散，故应该舍去次项
+											\begin{equation} \varphi(r,z) = Ae^{\pm ikx}J_0(ikr) \end{equation}
+											通解可表示为如下积分形式
+											\begin{equation} \begin{aligned} \varphi(r,z) &= \int_{-\infty}^{+\infty} A(k)e^{ikx}J_0(ikr)dk\\
+											&= \frac{1}{2\pi}\int_0^{2\pi}\int_{-\infty}^{+\infty} A(k)e^{ik(x+irsin\alpha)}dkd\alpha   \end{aligned} \end{equation}
+											其中零阶贝塞尔函数的积分表达式为
+											\begin{equation} J_0(ikr) = \frac{1}{2\pi}\int_0^{2\pi} e^{-kr sin\alpha} \end{equation}
+											当r=0时
+											\begin{equation} \varphi(0,z) = V(z) = \int_{-\infty}^{+\infty} A(k)e^{ikx}dk \end{equation}
+											则可以得到
+											\begin{equation} V(z+irsin\alpha) = \int_{-\infty}^{+\infty}A(k)e^{ik(x+irsin\alpha)}dk \end{equation}
+											\begin{equation} \varphi(r,z) = \frac{1}{2\pi}\int_0^{2\pi} V(z+irsin\alpha)d\alpha \end{equation}
+										</div>
+									</body>
+								</article>
+								<hr />
+
+								<article>
+									<h2>轴对称电场的调和级数展开式</h2>
+									<body>
+										<div class="formula">
+											假定轴上电位分布为
+											\begin{equation} V(z)=(z-z_0)^k\qquad k =0 ,1,2,... \end{equation}
+											代入Scherzer公式可得到满足满足拉普拉斯方程的调和多项式
+											\begin{equation} \begin{matrix}
+											k=0 && V(z) = (z-z_0)^0 = 1 && P_0=(z-z_0)^0=1 \\
+											k=1 && V(z) = z-z_0 && P_1=z-z_0\\
+											k=2 && V(z) = (z-z_0)^2 && P_2 = (z-z_0)^2-r^2/2\\
+											k=3 && V(z) = (z-z_0)^3 && P_3 = (z-z_0)^3 - 3r^2(z-z_0)/2\\
+											... && .... && ...
+											\end{matrix}\end{equation}
+											用这些调和多项式<span>`P_k`</span>可以构成描述轴对称电场的调和级数，即
+											\begin{equation}\varphi(r,z) = \sum_{k=0}^\infty C_kP_k(r,z-z_0) \end{equation}
+											r=0时
+											\begin{equation} \varphi(0,z) = \sum_{k=0}^\infty C_k(z-z_0)^k = V(z) \end{equation}
+											\begin{equation} \varphi(0,z) = \sum_{k=0}^\infty \frac{V^{(k)}(z_0)}{k!}(z-z_0)^k \end{equation}
+											将V(z)展开成泰勒级数
+											\begin{equation} V(z) = \sum_{k=0}^\infty \frac{V^{(k)}(z_0)}{k!}(z-z_0)^k \end{equation}
+											则
+											\begin{equation} C_k = \frac{1}{k!}V^{(k)}(z_0) \end{equation}
+											\begin{equation} \varphi(r,z) = \sum_{k=0}^\infty \frac{V^{(k)}(z_0)}{k!}P_k(r,z-z_0) \end{equation}
+											展开上式可得
+											\begin{equation} \varphi(r,z) = V(z_0) + (z-z_0)V'(z_0) + \frac{1}{2}V''(z_0)\left[ (z-z_0)^2 -\frac{r^2}{2} \right] + \frac{1}{6}V^{(3)}(z_0)\left[ (z-z_0)^3 -\frac{3}{2}r^2(z-z_0) \right] + ... \end{equation}
+											\begin{equation}  \end{equation}
+										</div>
+									</body>
+								</article>
+								<hr />
+								
+								<article>
+									<h2>轴对称静电场近轴区的性质</h2>
+									<body>
+										<div class="formula">
+											由Scherzer公式我们取一级近似可以得到
+											\begin{equation} E_r = -\frac{\partial \varphi}{\partial r} = \frac{1}{2}V''(z)r  \end{equation}
+											\begin{equation} E_z = -\frac{\partial \varphi}{\partial z} = -V'(z) \end{equation}
+											则电场对电子在两个方向的作用力分别为
+											\begin{equation} F_r = -eE_r = -\frac{e}{2}V''(z)r \end{equation}
+											\begin{equation} F_z = -eE_z = eV'(z) \end{equation}
+
+											\begin{equation}  \end{equation}
+											\begin{equation}  \end{equation}
+											\begin{equation}  \end{equation}
+											\begin{equation}  \end{equation}
+										</div>
+									</body>
+								</article>
+								<hr />
+
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+
+						<section class="split contact">
+
+							<section>
+								<h3>Email</h3>
+								<p><a href="#">hsm@mail.ustc.edu.cn</a></p>
+							</section>
+
+						</section>
+					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
