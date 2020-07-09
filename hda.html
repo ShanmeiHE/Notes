@@ -179,7 +179,8 @@
 											\begin{equation} \varphi(r,z) = \sum_{k=0}^\infty \frac{V^{(k)}(z_0)}{k!}P_k(r,z-z_0) \end{equation}
 											展开上式可得
 											\begin{equation} \varphi(r,z) = V(z_0) + (z-z_0)V'(z_0) + \frac{1}{2}V''(z_0)\left[ (z-z_0)^2 -\frac{r^2}{2} \right] + \frac{1}{6}V^{(3)}(z_0)\left[ (z-z_0)^3 -\frac{3}{2}r^2(z-z_0) \right] + ... \end{equation}
-											\begin{equation}  \end{equation}
+											当<span>`z_0=0`</span>时，上式变为
+											\begin{equation} \varphi(r,z) = \sum^\infty_0 \frac{1}{k!}V^{(k)}(0)P_k(r,z) = V(0)+V'(0)z+\frac{1}{2}V''(0)\left(z^2-\frac{1}{2}r^2 \right) + \frac{1}{6}V'''(0)\left( z^3 - \frac{3}{2}r^2z \right) + ... \end{equation}
 										</div>
 									</body>
 								</article>
@@ -195,15 +196,96 @@
 											则电场对电子在两个方向的作用力分别为
 											\begin{equation} F_r = -eE_r = -\frac{e}{2}V''(z)r \end{equation}
 											\begin{equation} F_z = -eE_z = eV'(z) \end{equation}
-
-											\begin{equation}  \end{equation}
-											\begin{equation}  \end{equation}
-											\begin{equation}  \end{equation}
-											\begin{equation}  \end{equation}
+											在对称轴附近的等位面形状
+											\begin{equation} \varphi(z,r) = C \end{equation}
+											\begin{equation} \varphi(r,z) = V(z_0) + (z-z_0)V'(z_0)+\frac{1}{2}(z-z_0)^2V''(z_0)-\frac{1}{4}r^2V''(z_0) \end{equation}
+											令<spn>`\varphi(r,z)=V(z_0)`</spn>
+											\begin{equation} (z-z_0)V'(z_0) + \frac{1}{2}(z-z_0)V''(z_0)-\frac{1}{4}r^2V''(z_0)=0 \end{equation}
+											\begin{equation} \frac{[(z-z_0)+V'(z_0)/V''(z_0)]^2}{[V'(z_0)/V''(z_0)]}-\frac{r^2}{2[V'(z_0)/V''(z_0)]^2} = 0 \end{equation}
+											上式为双曲线方程，其中r和<span>`z-z_0`</span>为变量，
+											由此得出结论：不管电极形状及所加的电压如何，轴对称静电场近轴区的等位面必然是旋转双曲面。
+											<br/>
+											等位面的曲率
+											\begin{equation} \frac{1}{R_M(r,z)} = -\frac{\varphi_{xx}\varphi_r^2-2\varphi_{xr}\varphi_r\varphi_z+\varphi_{rr}\varphi_z^2}{(\varphi_r^2+\varphi_z^2)^{3/2}} \end{equation}
+											\begin{equation} \frac{1}{R_s(r,z)} = -\frac{1}{r(1+r')^{1/2}} = -\frac{\varphi_r}{r(\varphi_z^2+\varphi_r^2)}^{1/2} \end{equation}
+											实际上我们只对轴上某点(0,z)处的等位面的曲率更感兴趣，
+											\begin{equation} \varphi_r = -\frac{V''(z)}{2}r=0\qquad \varphi_z=V'(z)\qquad \varphi_{rr}=-\frac{V''(z)}{2}\qquad \varphi_{rr}=-\frac{V'''(z)}{2}r=0 \end{equation}
+											可知等位面在轴上的任何方位的曲率都相同
+											\begin{equation} \frac{1}{R(z)} = \frac{1}{R_M(z)} = \frac{1}{R_s(z)} = \frac{1}{2}\frac{V''(z)}{V'(z)} \end{equation}
+											
 										</div>
 									</body>
 								</article>
 								<hr />
+
+								<article>
+									<h2>轴对称静电场力函数的性质</h2>
+									<body>
+										<div class="formula">
+											力函数<span>`\psi(r,z)`</span>的表达式如下
+											\begin{equation} \psi = \frac{1}{2\pi}\int_S \mathbf{E}\cdot d\mathbf{S} \end{equation}
+											\begin{equation} \mathbf{E} = E_r\mathbf{e}_r + E_z\mathbf{e}_z \end{equation}
+											\begin{equation} d\mathbf{S} = d\mathbf{S}_r + d\mathbf{S}_z =2\pi r(dr\mathbf{e}_z-dz\mathbf{e}_r)\end{equation}
+											则
+											\begin{equation} d\psi = \frac{1}{2\pi}\mathbf{E}\cdot d\mathbf{S} = r(E_zdr-E_rdz)\end{equation}
+											\begin{equation} d\psi = \frac{\partial\psi}{\partial r}dr+\frac{\partial \psi}{\partial z}dz \end{equation}
+											可得
+											\begin{equation} E_x=\frac{1}{r}\frac{\partial \psi}{\partial r}\qquad E_r=-\frac{1}{r}\frac{\partial \psi}{\partial z} \end{equation}
+										</div>
+									</body>
+								</article>
+								<hr />
+
+								<article>
+									<h2>等直径双圆桶电机系统的电场分布</h2>
+									<span class="image left"><img src="images/shuangyuantong.png" alt="" /></span>
+									<body>
+										<div class="formula">
+											分离变量解出的拉普拉斯方程解为
+											\begin{equation} \varphi(r,z) = V_0+\int_{-\infty}^{+\infty}[A(k)sinkz+B(k)coskz]J_0(ikr)dk \end{equation}
+											由对称性可知
+											\begin{equation} \varphi(r,0) = V_0 = const \end{equation}
+											由此可得
+											\begin{equation} B(k)=0 \end{equation}
+											因此化简为
+											\begin{equation} \varphi(r,z) = V_0 + \int_0^\infty[A(k)-A(-k)]sinkzJ_0(ikr)dk = \varphi(r,z) = V_0+\int_0^\infty A(k)sinkz J_0(ikr)dk \end{equation}
+											利用以下边界条件确定A(k)的值
+											\begin{equation}\begin{aligned} 
+											z=0\qquad \varphi(R,0)=(V_1+V_2)/2=V_0\\
+											z< 0\qquad \varphi(R,0)=V_1
+											z> 0\qquad \varphi(R,0)=V_2
+											\end{aligned}\end{equation}
+											则有
+											\begin{equation} \int_0^\infty A(k)sinkz J_0(ikR)dk = \frac{V_2-V_1}{2},\qquad z >0,r=R \end{equation}
+											\begin{equation} \int_0^\infty A(k)sinkz J_0(ikR)dk = -\frac{V_2-V_1}{2},\qquad z< 0,r=R \end{equation}
+											\begin{equation}  \end{equation}
+											傅立叶积分的两个互异关系式
+											\begin{equation} f(t) = \frac{2}{\pi}\int_0^\infty G(\omega)sin\omega t d\omega \end{equation}
+											\begin{equation} G(\Omega) = \frac{2}{\pi}\int_0^\infty f(t)sin\omega t dt \end{equation}
+											则我们可以知道z和k与上式中的t和<span>`\omega`</span>对应
+											\begin{equation} A(k)J_0(ikR)\rightarrow G(\omega)\qquad \frac{V_2-V_1}{2}\rightarrow f(t) \end{equation}
+											则
+											\begin{equation} A(k)J_0(ikR) = \frac{V_2-V_1}{2} \frac{2}{\pi}\int_0^\infty sinkzdz = \frac{V_2-V_1}{\pi k} \end{equation}
+											此处认为
+											\begin{equation} \int_0^\infty sinkzdz = \frac{1}{k} \end{equation}
+											则
+											\begin{equation} A(k) = \frac{V_2-V_1}{\pi kJ_0(ikR)} \end{equation}
+											将A(k)带回去，得到
+											\begin{equation} \varphi(r,z) = \frac{V_2+V_1}{2}+\frac{V_2-V_1}{\pi}\int_0^\infty \frac{sinkz}{k}\frac{J_0(ikr)}{J_0(ikR)}dk \end{equation}
+											
+											<span class="image left"><img src="images/syt.png" alt="" /></span>
+											经过化简，近似结果为
+											\begin{equation} \varphi(0,z) = V(z) = \frac{V_2+V_1}{2} + \frac{V_2-V_1}{2}tanh(1.32z/R) \end{equation}
+											当z=2R时，V=0.995，说明当z>R以后，轴上电位约等于圆筒电位。
+											\begin{equation}  \end{equation}
+										</div>
+									</body>
+											
+								</article>
+								<hr />
+
+
+
 
 							</section>
 
