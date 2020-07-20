@@ -1,0 +1,160 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+<html>
+	<head>
+		<title>Integer Quatum Hall Effect</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<head>
+		<script type="text/javascript" async
+			src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async>
+		</script>
+	</head>
+
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Notes</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">INTRO</a></li>
+							<li><a href="QuantumHallEffecct.html">NOTES-IQHE</a></li>
+							<li><a href="DealiiStudy.html">NOTES-Deal.II</a></li>
+							<li class="active"><a href="hda.html">NOTES-HDA</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<!-- Post -->
+							<section class="post">
+
+
+				
+
+								<header class="major">
+									<h1>Hemisphere Deflector Analyzer</h1>
+								</header>
+
+								<!-- Text stuff -->
+									
+				
+								
+								<article>
+									<h2>最小二乘法</h2>
+									<body>
+										<div class="formula">
+											i点的误差表达式为
+											\begin{equation} \epsilon_i = g(x_i)-y_i \end{equation}
+											总误差的表达式
+											\begin{equation} \epsilon = \sum_i (g(x_i)-y_i)^2\cdot G(x_i)^2 \end{equation}
+											g(x)的表达式(圆心坐标为(a,b)，半径为r)
+											\begin{equation} (x-a)^2+[g(x)-b]^2 = r^2 \end{equation}
+											\begin{equation} g(x) = \pm\sqrt{r^2 - (x-a)^2} + b \end{equation}
+											当
+											\begin{equation} \frac{\partial \epsilon}{\partial r} = \sum_i 2G(x_i)^2(g(x_i)-y_i)\frac{\partial g(x_i)}{\partial r} = \sum_i 2G(x_i)^2(g(x_i)-y_i)\frac{r}{g(x_i)} = 0 \end{equation}
+											\begin{equation} \frac{\partial \epsilon}{\partial a} = \sum_i 2G(x_i)^2(g(x_i)-y_i)\frac{\partial g(x_i)}{\partial a} = \sum_i 2G(x_i)^2(g(x_i)-y_i)\frac{a-x}{g(x_i)} = 0\end{equation}
+											\begin{equation} \frac{\partial \epsilon}{\partial b} = \sum_i 2G(x_i)^2(g(x_i)-y_i)\frac{\partial g(x_i)}{\partial b} = \sum_i 2G(x_i)^2(g(x_i)-y_i) = 0\end{equation}
+											时，<span>`\epsilon`</span>取最小值，则解下面方程
+											\begin{equation} \sum_i 2G(x_i)^2(g(x_i)-y_i)\frac{r}{g(x_i)} = 0 \end{equation}
+											\begin{equation} \sum_i 2G(x_i)^2(g(x_i)-y_i)\frac{a-x}{g(x_i)} = 0 \end{equation}
+											\begin{equation} \sum_i 2G(x_i)^2(g(x_i)-y_i) = 0 \end{equation}
+											上式在分母中包含未知参数a,b,r，(<span>`g(x_i)`</span>中含有a,b,r)不是一个线性方程，故考虑变形
+											i点的误差表达式为
+											\begin{equation} \epsilon_i = x_i^2+y_i^2+ax_i+by_i+c \end{equation}
+											总误差的表达式
+											\begin{equation} \epsilon = \sum_i (x_i^2+y_i^2+ax_i+by_i+c)^2\cdot G(x_i)^2 \end{equation}
+											求偏导
+											\begin{equation} \frac{\partial \epsilon}{\partial a} = \sum_i (x_i^2+y_i^2+ax_i+by_i+c)x_iG(x_i)^2  = 0\end{equation}
+											\begin{equation} \frac{\partial \epsilon}{\partial b} = \sum_i (x_i^2+y_i^2+ax_i+by_i+c)y_iG(x_i)^2 = 0\end{equation}
+											\begin{equation} \frac{\partial \epsilon}{\partial c} = \sum_i (x_i^2+y_i^2+ax_i+by_i+c)G(x_i)^2 = 0\end{equation}
+											写成矩阵形式
+											\begin{equation} 
+											\left(\begin{matrix}
+											\sum_i x_i^2 G(x_i)^2 & \sum_i x_iy_iG(x_i)^2 & \sum_i x_iG(x_i)^2\\
+											\sum_i x_iy_i G(x_i)^2 & \sum_i y_i^2G(x_i)^2 &\sum_i y_iG(x_i)^2\\
+											\sum_i x_iG(x_i)^2 & \sum_i y_iG(x_i)^2 & \sum_i G(x_i)^2\\
+											\end{matrix}\right)
+											\left(\begin{matrix}
+											a\\
+											b\\
+											c\\
+											\end{matrix}\right)=
+											\left(\begin{matrix}
+											-\sum_i(x_i^2+y_i^2)x_iG(x_i)^2\\
+											-\sum_i(x_i^2+y_i^2)y_iG(x_i)^2\\
+											-\sum_i(x_i^2+y_i^2)G(x_i)^2\\
+											\end{matrix}\right)
+											 \end{equation}
+											
+											\begin{equation}  \end{equation}
+											\begin{equation}  \end{equation}
+											\begin{equation}  \end{equation}
+											\begin{equation}  \end{equation}
+											\begin{equation}  \end{equation}
+											\begin{equation}  \end{equation}
+											\begin{equation}  \end{equation}
+											\begin{equation}  \end{equation}
+											\begin{equation}  \end{equation}
+											\begin{equation}  \end{equation}
+											\begin{equation}  \end{equation}
+											\begin{equation}  \end{equation}
+											\begin{equation}  \end{equation}
+											
+										</div>
+									</body>
+											
+								</article>
+								<hr />
+
+
+
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+
+						<section class="split contact">
+
+							<section>
+								<h3>Email</h3>
+								<p><a href="#">hsm@mail.ustc.edu.cn</a></p>
+							</section>
+
+						</section>
+					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
