@@ -114,7 +114,7 @@
 											\begin{equation} \varphi(z,r) = \sum_{k=0}^\infty (-1)^{2k} \end{equation}
 											\begin{equation} \varphi(z,0) = a_0(z) = V(z) \end{equation}
 											所以<span>`a_0(z)`</span>就是轴上的电位分布，则有
-											\begin{equation} \varphi(r,z) = \sum_{k=0}^\infty (-1)^k\frac{1}{(k!)^2} \left(\frac{r}{2}\right)^{2k} V^{(2k)}(z) = V(z) - \frac{1}{4}V''(z)r^2+\frac{1}{64}V''''(z)^4+...+ \end{equation}
+											\begin{equation} \varphi(r,z) = \sum_{k=0}^\infty (-1)^k\frac{1}{(k!)^2} \left(\frac{r}{2}\right)^{2k} V^{(2k)}(z) = V(z) - \frac{1}{4}V''(z)r^2+\frac{1}{64}V''''(z)^4r^4+...+ \end{equation}
 											此公式是电子光学的基本公式，被称为Scherzer公式。然而，实际上，只有在r比较小的区域，此级数收敛得才快，这时取级数的前几项就可以确定空间的场分布。如果想决定离轴较远处的场分布，就很不方便了。
 										</div>
 									</body>
@@ -351,6 +351,99 @@
 										浸没透镜基本参量的计算
 										\begin{equation} \frac{V_2}{V_1} = C \end{equation}
 										\begin{equation} f_b = \frac{2.02C^{\frac{1}{4}}}{[(C+1)/(C-1)]lnC-2} \end{equation}
+										</div>
+									</body>
+											
+								</article>
+								<hr />
+
+								<article>
+									<h2>电子轨迹(Runge-Kutta)</h2>
+									<span class="image left"><img src="images/electrode.png" alt="" /></span>
+									<body>
+										<div class="formula">
+										对于一阶微分方程
+										\begin{equation} y' = f(t,y) \end{equation}
+										\begin{equation} y(0) = y_0 \end{equation}
+										Runge-Kutta求解公式
+										\begin{equation} h = t_{n+1}-t_n \end{equation}
+										\begin{equation} k_1 = h f(t_n,y_n) \end{equation}
+										\begin{equation} k_2 = h f\left(t_n+\frac{h}{2},y_n+\frac{k_1}{2}\right) \end{equation}
+										\begin{equation} k_3 = h f\left(t_n+\frac{h}{2},y_n+\frac{k_2}{2}\right) \end{equation}
+										\begin{equation} k_4 = h f(t_n+h,y_n+k_3) \end{equation}
+										对于电子轨迹，有4条微分方程
+										\begin{equation} \dot{v}_r = F_r(r,z) \end{equation}
+										\begin{equation} \dot{v}_z = F_z(r,z) \end{equation}
+										\begin{equation} \dot{r} = v_r \end{equation}
+										\begin{equation} \dot{z} = v_z \end{equation}
+										用Runge-Kutta公式
+										\begin{equation} v_{z,n+1} = v_{z,n} + \frac{1}{6}(K_1+2K_2+2K_3+K_4) \end{equation}
+										\begin{equation} v_{r,n+1} = v_{r,n} + \frac{1}{6}(L_1+2L_2+2L_3+L_4) \end{equation}
+										\begin{equation} z_{n+1} = z_n + \frac{1}{6}(K_1+2K_2+2K_3+K_4) \end{equation}
+										\begin{equation} r_{n+1} = r_n + \frac{1}{6}(K_1+2K_2+2K_3+K_4) \end{equation}
+										计算流程
+										\begin{equation} K_1 = \Delta t F_z(r_n,z_n) \end{equation}
+										\begin{equation} L_1 = \Delta t F_r(r_n,z_n) \end{equation}
+										\begin{equation} M_1 = \Delta t v_{z,n} \end{equation}
+										\begin{equation} N_1 = \Delta t v_{r,n} \end{equation}
+										\begin{equation} K_2 = \Delta t F_z\left( r_n+\frac{N_1}{2}, z_n+\frac{M_1}{2} \right) \end{equation}
+										\begin{equation} L_2 = \Delta t F_r\left( r_n+\frac{N_1}{2}, z_n+\frac{M_1}{2} \right) \end{equation}
+										\begin{equation} M_2 = \Delta t \left( v_{z,n}+\frac{K_1}{2} \right) \end{equation}
+										\begin{equation} N_2 = \Delta t \left( v_{r,n}+\frac{L_1}{2} \right) \end{equation}
+										\begin{equation} K_3 = \Delta t F_z\left( r_n+\frac{N_2}{2}, z_n+\frac{M_2}{2} \right) \end{equation}
+										\begin{equation} L_3 = \Delta t F_r\left( r_n+\frac{N_2}{2}, z_n+\frac{M_2}{2} \right) \end{equation}
+										\begin{equation} M_3 = \Delta t \left( v_{z,n}+\frac{K_2}{2} \right) \end{equation}
+										\begin{equation} N_3 = \Delta t \left( v_{r,n}+\frac{L_2}{2} \right) \end{equation}
+										\begin{equation} K_4 = \Delta t F_z\left( r_n+N_3, z_n+M_3 \right) \end{equation}
+										\begin{equation} L_4 = \Delta t F_r\left( r_n+N_3, z_n+M_3 \right) \end{equation}
+										\begin{equation} M_4 = \Delta t \left( v_{z,n}+K_3 \right) \end{equation}
+										\begin{equation} N_4 = \Delta t \left( v_{r,n}+L_3 \right) \end{equation}
+										\begin{equation}  \end{equation}
+										\begin{equation}  \end{equation}
+										\begin{equation}  \end{equation}
+										\begin{equation}  \end{equation}
+										\begin{equation}  \end{equation}
+										\begin{equation}  \end{equation}
+										\begin{equation}  \end{equation}
+										\begin{equation}  \end{equation}
+										\begin{equation}  \end{equation}
+										\begin{equation}  \end{equation}
+										\begin{equation}  \end{equation}
+										\begin{equation}  \end{equation}
+										\begin{equation}  \end{equation}
+										\begin{equation}  \end{equation}
+										</div>
+									</body>
+											
+								</article>
+								<hr />
+
+
+								<article>
+									<h2>高斯轨迹</h2>
+									
+									<body>
+										<div class="formula">
+										纯静电场轴对称场的高斯轨迹方程为
+										\begin{equation} r''+\frac{1}{2}\frac{V'}{V}r'+ \frac{V''}{4V}r = 0 \end{equation}
+										可将上式改写为
+										\begin{equation} d\left( \sqrt{V}\frac{dr}{dz} \right) = -\frac{V''}{4\sqrt{V}}rdz \end{equation}
+										积分可得
+										\begin{equation} \left.\sqrt{V}\frac{dr}{dz}\right|_{z=z_b}-\left.\sqrt{V}\frac{dr}{dz}\right|_{z=z_a} = -\frac{1}{4}\int_{z_a}^{z_b}\frac{V''}{\sqrt{V}}rdz \end{equation}
+										转化为梯形数值积分
+										\begin{equation} \left.\sqrt{V}\frac{dr}{dz}\right|_{z=z_b}-\left.\sqrt{V}\frac{dr}{dz}\right|_{z=z_a} = -\frac{1}{8}\left(\left.\frac{V''}{\sqrt{V}}r\right|_{z=z_b}+\left.\frac{V''}{\sqrt{V}}r\right|_{z=z_a}\right)dz \end{equation}
+										递推关系
+										\begin{equation} \vec{v}(z_a)\rightarrow r(z_b)\rightarrow \left.\frac{dr}{dz}\right|_{z=z_b} \rightarrow \vec{v}(z_b)\end{equation}
+										这样就可以递推得到高斯轨迹
+										\begin{equation}  \end{equation}
+										\begin{equation}  \end{equation}
+										\begin{equation}  \end{equation}
+										\begin{equation}  \end{equation}
+										\begin{equation}  \end{equation}
+										\begin{equation}  \end{equation}
+										\begin{equation}  \end{equation}
+										\begin{equation}  \end{equation}
+										\begin{equation}  \end{equation}
 										</div>
 									</body>
 											
