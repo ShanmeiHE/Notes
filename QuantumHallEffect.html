@@ -54,15 +54,130 @@
 								</header>
 
 								<!-- Text stuff -->
-									
 								<article>
+									<hr />
+									<h2>Independent Electron Model</h2>
+									<body>
+										<div class="formula">
+											\begin{equation}\mathcal{H}\Phi_n(\vec{r}_1,...,\vec{r}_N) = E_n\Phi_n(\vec{r}_1,...,\vec{r}_N)\qquad\qquad(7.25)\end{equation}
+											\begin{equation}\mathcal{H} = \sum_{i=1}^N\left(\frac{-\hbar^2\nabla_i^2}{2m_e}-\sum_I\frac{e^2Z}{|\vec{r}_i-\vec{R}_I|}\right)+\frac{1}{2} \sum_{i\neq j}^N\frac{e^2}{|\vec{r}_i-\vec{r}_j|}\qquad\qquad(7.26)\end{equation}
+										
+											It is frequently a good approximation to replace <span>`\mathcal{H}`</span> by an effective independent-particle Hamiltonian
+											\begin{equation}\mathcal{H} = \sum_{i=1}^N H_i= \sum_{i=1}^N\left(\frac{-\hbar^2\nabla_i^2}{2m_e} + v_{eff}(\vec{r}_i)\right)\qquad\qquad(7.27)\end{equation}
+										
+											<span>`v_{eff}`</span> is some sort of effective potential which includes the interaction of an electron with the nuclei and represents in some average way the interaction of an electron with all other electrons.
+
+											The most naive case is one where <span>`v_{eff}=0`</span>.  This leaves us with the so-called free-electron-gas model. In this model the single-particle states are plane waves, which can be labeled by a wave vector,
+											\begin{equation}\langle \vec{v}|\vec{k}\rangle =\frac{1}{\sqrt{L^3}}exp(i\vec{k}\cdot\vec{r}) \qquad\qquad(7.28)\end{equation}
+											
+											These plane waves have eigenenergy and are eigenstates of the velocity operator with eigenvalue <span>`\hbar\vec{k}/m_e`</span>.
+											\begin{equation} \epsilon_{\vec{k}} =\frac{\hbar^2k^2}{2m_e} \qquad\qquad(7.29)\end{equation}
+											\begin{equation} \vec{V} = \frac{d\vec{r}}{dt} = \frac{i}{\hbar}[H,\vec{r}] = \frac{i}{2m_e\hbar}[\vec{p}\cdot\vec{p},\vec{r}] = \frac{i}{m_e\hbar}\vec{p}(-i\hbar) = \frac{\vec{p}}{m_e} = \frac{-i\hbar\nabla}{m_e} \qquad\qquad(7.30)\end{equation}
+											
+											The next-simplest model, sometimes called the independent-particle model, uses
+											\begin{equation} v_{eff} = V(\vec{r}) \qquad\qquad(7.31)\end{equation}
+
+											where V is a periodic potential with the symmetries of the crystalline lattice:
+											\begin{equation} v_{eff} = V(\vec{r}) \qquad\qquad(7.32)\end{equation}
+											where <span>`\vec{R}_j`</span> is a lattice vector of the crystal.
+										</div>
+									</body>
+								</article>
+
+
+								<article>
+									<hr />
+									<h2>Bloch's Theorem</h2>
+									<body>
+										<div class="formula">
+											
+											Now <span>`V(\vec{r})`</span> (and hence H ) has the translation symmetry of the lattice:
+											\begin{equation} V(\vec{r}+\vec{a}_j) = V(\vec{r})\qquad\qquad(7.35)\end{equation}
+										
+											Let us start with the simplest possible case, <span>`V(\vec{r})=constant`</span>. In this case
+											\begin{equation} [H,T_{\vec{l}}] = 0 \qquad\qquad(7.37)\end{equation}
+											\begin{equation} T_{\vec{l}} = e^{i\vec{p}\cdot\vec{l}/\hbar} \qquad\qquad(7.38)\end{equation}
+											When <span>`V(\vec{r})`</span> is not a constant, we have
+											\begin{equation} [H,T_{\vec{a}_j}] = 0 \qquad\qquad(7.37)\end{equation}
+											That is, we can choose our energy eigenstates <span>`\psi`</span> to be eigenstates of <span>`\{T_j\}`</span>
+											\begin{equation} T_j\psi = \lambda_j\psi \qquad\qquad(7.45)\end{equation}
+											If we now invoke periodic boundary conditions
+											\begin{equation} \psi(\vec{r}+M\vec{a}_j) = \psi(\vec{r}) \qquad\qquad(7.46)\end{equation}
+											where M is a large integer, then we must have
+											\begin{equation} \lambda_j^M=1 \qquad\qquad(7.47)\end{equation}
+											This means that
+											\begin{equation} \lambda_j = e^{i\vec{k}\cdot\vec{a}_j} \qquad\qquad(7.48)\end{equation}
+											where <span>`\vec{k}`</span> is one of the usual wave vectors allowed in a periodic system,
+											\begin{equation} \vec{k} = \frac{\vec{G}}{M} \qquad\qquad(7.49)\end{equation}
+
+											A function <span>`\rho(\vec{R})`</span> that has the translation symmetry of the lattice satisfies
+											\begin{equation} \rho(\vec{R}) = \rho(\vec{R}+\vec{R}_{\vec{n}}) \qquad\qquad(3.21)\end{equation}
+										
+											where <span>`\vec{R}_{\vec{n}}`</span> is a lattice vector
+											\begin{equation} \vec{R}_{\vec{n}} = n_1\vec{a}_1 + n_2\vec{a}_2 + n_3\vec{a}_3 \qquad\qquad(3.15)\end{equation}
+											
+											One way to construct such a periodic function is
+											\begin{equation} \rho(\vec{R}) = \sum_{\{\vec{G}\}} \widetilde{\rho}_{\vec{G}} e^{i\vec{G}\cdot\vec{R}} \qquad\qquad(3.23)\end{equation}
+											where the set of wave vectors <span>`\{\vec{G}\}`</span>  is determined from the periodicity condition (3.21)
+											\begin{equation} e^{ i\vec{G}\cdot(\vec{R}_\vec{n}) } = e^{ i\vec{G}\cdot(n_1\vec{a}_1 + n_2\vec{a}_2 + n_3\vec{a}_3) } = 1 \qquad\qquad(3.24)\end{equation}
+											which means
+											\begin{equation} \vec{G}\cdot\vec{a}_j = 2\pi m_j,\qquad j=1,2,3 \qquad\qquad(3.25)\end{equation}
+											
+
+											It follows that the most general solution of the periodic Schrödinger equation is
+											\begin{equation} \psi_{\vec{k}}(\vec{r}) = e^{i\vec{k}\cdot\vec{r}}u_{\vec{k}}(\vec{r}) \qquad\qquad(7.50)\end{equation}
+											where
+											\begin{equation} u_{\vec{k}}(\vec{r}+\vec{a}_{j}) = u_{\vec{k}}(\vec{r}),\qquad j=1,2,3 \qquad\qquad(7.51)\end{equation}
+											It is straightforward to see that Eq. (7.50) is the most general form consistent with Eqs. (7.45) and (7.48). This is known as <b>Bloch’s theorem</b>.
+
+											<br/>
+											For the more general case, we can draw on our experience from Eq.(3.23)
+											\begin{equation} u_{\vec{k}}(\vec{r}) = \sum_{\{\vec{G}\}}a_{\vec{G}}(\vec{k})e^{i\vec{G}\cdot\vec{r}} \qquad\qquad(7.54)\end{equation}
+											\begin{equation} \psi_{\vec{k}}(\vec{r}) = \sum_{\{\vec{G}\}}a_{\vec{G}}(\vec{k})e^{i(\vec{k}+\vec{G})\cdot\vec{r}} \qquad\qquad(7.55)\end{equation}
+											we can restrict the wave vector <span>`\vec{k}`</span> to the first Brillouin zone.
+											\begin{equation}\psi_{\vec{k}}(\vec{r}) = \sum_{\{\vec{G}\}} b_{\vec{G}}(\vec{k})e^{i(\vec{k}+\vec{G}'+\vec{G})\cdot\vec{r}}\end{equation}
+											We can always choose <span>`\vec{G}'`</span> so that <span>`\vec{k}'`</span> lies in the first Brillouin zone. Thus we can always write the wave functions in the form
+											\begin{equation} \psi_{n\vec{k}'}(\vec{r}) = e^{i\vec{k}'\cdot\vec{r}}u_{n\vec{k}'}(\vec{r}) \qquad\qquad(7.58)\end{equation}
+											where <span>`\vec{k}'`</span> is restricted to the first Brillouin zone, and use the integer label n, known as the band index, to make up for this restriction.
+										
+											From Eq.(7.58)
+											\begin{equation} \vec{p}\psi_{n\vec{k}} = e^{i\vec{k}\cdot\vec{r}}(\vec{p}+\hbar\vec{k})u_{n\vec{k}} \qquad\qquad(7.63)\end{equation}
+											the Schrodinger equation can be rewritten as
+											\begin{equation} \left[ \frac{1}{2m}(\vec{p}+\hbar\vec{k})^2 + V(\vec{r}) \right]u_{n\vec{k}}(\vec{r}) = \epsilon_{n\vec{k}}u_{n\vec{k}}(\vec{r}) \qquad\qquad(7.64)\end{equation}
+											
+											Now notice that the equation need only be solved within a single unit cell because of the periodicity of <span>`u_{n\vec{k}}'`</span>
+											
+											1D empty-lattice example
+											\begin{equation} \frac{1}{2m} (p+\hbar k)^2  u_{nk}(x) = \epsilon_{nk}u_{nk}(x) \qquad\qquad(7.66)\end{equation}
+											with periodic boundary condition
+											\begin{equation}  u_{nk}\left( -\frac{a}{2} \right) = u_{nk}\left( +\frac{a}{2} \right);\quad u'_{nk}\left( -\frac{a}{2} \right) = u'_{nk}\left( +\frac{a}{2} \right) \qquad\qquad(7.67)\end{equation}
+											the solution is
+											\begin{equation}  u_{nk}(x) = \sqrt(\frac{1}{a})e^{-inG_1 sgn(k)x} \qquad\qquad(7.68)\end{equation}
+											
+
+											Consider the case of a weak periodic potential of the form
+											\begin{equation}  \frac{1}{2m}(p+\hbar k + V(x))^2 u_{nk}(x) = \epsilon_{nk}u_{nk}(x) \qquad\qquad(7.66)\end{equation}
+											\begin{equation}  V(x) = vcos(G_1x) = \frac{v}{2}(e^{i2\pi x/a}+e^{-i 2\pi x/a}) \qquad\qquad(7.69)\end{equation}
+											where <span>`G_1 = \frac{2\pi}{a}`</span>
+										
+										
+										</div>
+									</body>
+								</article>
+
+
+								<article>
+									<hr />
 									<h2>Hall-Effect Transport in High Magnetic Fields</h2>
 									<body>
 										<div class="formula">
 											\begin{equation}J_\mu = \sigma_{\mu\nu}E_\nu\qquad\qquad(1)\end{equation}
 											\begin{equation}E_\mu = \rho_{\mu\nu}J_\nu\qquad\qquad(2)\end{equation}
+										
 										</div>
+										
 									</body>
+
 									<body>
 										<div class="formula">
 											For magnetic field <span>`\vec{B} = B\hat{z}`</span> and current density <span>`\vec{J} = J\hat{x}`</span>, 
@@ -530,6 +645,26 @@
 									<hr />
 									<header class="major">
 										<h1>Semiclassical Percolation Picture of the IQHE
+									</header>
+									We take the magnetic field to be very large so that the magnetic length is small on the scale over which the potential varies. In addition, we ignore the Coulomb interactions among the electrons.
+
+									For the case of a constant electric field, the wave functions were plane waves running along lines of constant potential energy and having a width perpendicular to them which is very small and on the order of the magnetic length.
+									the wave functions were plane waves running along lines of constant potential energy and having a width perpendicular to them which is very small and on the order of the magnetic length. Landau level to continuously vary its kinetic energy. Hence energy conservation restricts its motion to regions of constant potential energy.
+									<span class="image fit"><img src="images/percolation.jpg" alt="" /></span>
+									This picture is an illustration of filling a Landau level with electron liquid, as the (average) electron density or Fermi energy εF increases. 
+									<br />
+									(a) Low density, below the percolation threshold.
+									<br />
+									(b) At the percolation threshold. 
+									<br />
+									(c) The electron distribution when the Fermi energy is above but very close to the percolation threshold. The grey area indicates the region occupied by electrons in the random potential. Backscattering between counter-propagating edge states becomes possible as they come close together in space, as indicated by the dashed line representing a quantum tunneling path connecting the two edges where they approach each other. The white regions in the interior are “mountain peaks” which are above “sea level” and therefore unoccupied by electrons. Their shorelines have finite length, and so local excitations have at least a small gap and cannot cause dissipation for weak electric fields at low frequencies.
+									<br />
+									(d) Above the percolation threshold.
+								</article>
+								<article>
+									<hr />
+									<header class="major">
+										<h1>Anomalous Integer Quantum Hall Sequence in Graphene
 									</header>
 									We take the magnetic field to be very large so that the magnetic length is small on the scale over which the potential varies. In addition, we ignore the Coulomb interactions among the electrons.
 
