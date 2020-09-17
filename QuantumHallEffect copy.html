@@ -603,6 +603,175 @@
 							<h3>Laughlin States</h3>	
 							Consider two particles interacting in the lowest Landau level. We take an arbitrary central pontential between them
 							\begin{equation} V=V(|\mathbf{r}_1-\mathbf{r}_2|) \end{equation}
+							Remember that in symmetry gauge, we have
+							\begin{equation} \psi_m\sim z^m e^{-|z|^2/4l_B^2} \end{equation}
+							with <span>`z=x-iy`</span>. 
+							<br/>
+							As long as
+							\begin{equation} \hbar\omega_B\gg V \end{equation}								
+							Then the two-particle eigenstates must take the form
+							\begin{equation} \psi\sim(z_1+z_2)^M(z_1-z_2)^m e^{-(|z_1|^2+|z_2|^2)/4l_B^2} \end{equation}
+							where M,m are non-negative integers, with M determining the angular momentum of the center mass, and m the relative angular momentum.
+							<br/>
+							Unfortunately, it's not possible to generalise arguments similar to those above to uniquely determine the eigenstates for N>2 particles.
+							Nonetheless, on general grounds, any lowest Landau level wavefunction must take the form
+							\begin{equation} \psi(z_1,...,z_n)=f(z_1,...,z_n)e^{-\sum^N_{i=1}|z_i|^2/4l_B^2} \end{equation}
+							The function must be anti-symmetric under exchange of any two particle <span>`z_i\leftrightarrow z_j`</span>, because electrons are fermions.
+							<br/>
+							Laughlin's proposal for the ground state wavefunction at filling fraction <span>`\nu = \frac{1}{m}`</span> is
+							\begin{equation} \psi(z_i) = \prod_{i< j}(z_i-z_j)^m e^{-\sum^n_{i=1}|z_i|^2/4l_B^2} \end{equation}
+							The wavefunction decreases whenever the two elctrons come together or get too far away from the origin.	Clearly this is anti-symmetric when m is an odd integer. For m an even integer, it can be thought of as a quantum Hall state for bosons.							
+							<br/>
+							In symmetry gauge, the wavefunction with angular momentum m is peaked on a ring of radius
+							\begin{equation} r=\sqrt{2m}l_B \end{equation}	
+							the degeneracy of states is roughly
+							\begin{equation} \mathcal{N} = \frac{A}{\Delta S} = \frac{A}{2\pi l_B^2} = \frac{eBA}{2\pi\hbar} \end{equation}								
+							\begin{equation}  \end{equation}
+							The terms that depend on <span>`z_1`</span> in the pre-factor of the Laughlin wavefunction are
+							\begin{equation} \prod_{i< j}(z_i-z_j)^m\sim\prod_{i=2}^N(z_1-z_i)^m \end{equation}
+							There are m(N-1) powers of <span>`z_1`</span>. So the maximum radius is
+							\begin{equation} R\approx\sqrt{2mN}l_B \end{equation}
+							The area of the droplet is
+							\begin{equation} A\approx 2\pi mNl_B^2 \end{equation}								
+							The number states in the full Landau level is 
+							\begin{equation} \frac{AB}{\Phi_0} = \frac{A}{2\pi l_B^2}\approx mN \end{equation}
+							The argument give us the filling fraction
+							\begin{equation} \nu = \frac{1}{m} \end{equation}
+							We should notice that in Drude Model
+							\begin{equation} \rho_{xy} = \frac{B}{ne} = \frac{1}{e\nu}\Phi_0 \end{equation}								
+							\begin{equation} B = \mathcal{N}\Phi_0 \end{equation}
+							In integer quantum hall effect
+							\begin{equation} \mathcal{N} = \frac{N}{m} \end{equation}
+							\begin{equation} \nu=m \qquad m\in\mathbf{Z}\end{equation}
+							In this case								
+							\begin{equation} \mathcal{N} = mN \end{equation}
+							\begin{equation} \nu = \frac{1}{m}\qquad m\in\mathbf{Z}\end{equation}
+							<h3>Fully Filled Landau Level</h3>	
+							Suppose that N electrons sit in distinct states <span>`\psi_i(x)`</span>, with i=1,2,...,N. 
+							To build the many-particle wavefunction, we need to anti-symmetrise over all particles.
+							\begin{equation}\begin{aligned} \psi(x_1,x_2,...,x_N) = \left|
+							\begin{matrix}
+							\psi_1(x_1) & \psi_1(x_2) & ... & \psi_1(x_N)\\ 
+							\psi_2(x_1) & \psi_2(x_2) & ... & \psi_2(x_N)\\ 
+							.&.& &.\\
+							.&.& &.\\
+							.&.& &.\\
+							\psi_N(x_1) & \psi_N(x_2) & ... & \psi_N(x_N)\\ 
+							\end{matrix}
+							\right| \end{aligned}\end{equation}
+							<span>`\psi_i(x)`</span> is the function of single-particle state
+							\begin{equation} \psi_m(z)\sim z^{m-1} e^{-|z|^2/4l_B^2} \qquad m=1,2,...,N \end{equation}								
+							Therefore
+							\begin{equation}\begin{aligned} \psi(x_1,x_2,...,x_N) 
+							&= \left|
+							\begin{matrix}
+							z_1^{0}e^{-|z_1|^2/4l_B^2} & z_2^{0}e^{-|z_2|^2/4l_B^2} & ... & z_N^{0}e^{-|z_N|^2/4l_B^2}\\ 
+							z_1^{1}e^{-|z_1|^2/4l_B^2} & z_2^{1}e^{-|z_2|^2/4l_B^2} & ... & z_N^{1}e^{-|z_N|^2/4l_B^2}\\
+							.&.& &.\\
+							.&.& &.\\
+							.&.& &.\\
+							z_1^{N-1}e^{-|z_1|^2/4l_B^2} & z_2^{N-1}e^{-|z_2|^2/4l_B^2} & ... & z_N^{N-1}e^{-|z_N|^2/4l_B^2}\\
+							\end{matrix}
+							\right|\\
+							&= \left|
+							\begin{matrix}
+							z_1^{0} & z_2^{0} & ... & z_N^{0}\\ 
+							z_1^{1} & z_2^{1} & ... & z_N^{1}\\
+							.&.& &.\\
+							.&.& &.\\
+							.&.& &.\\
+							z_1^{N-1} & z_2^{N-1} & ... & z_N^{N-1}\\
+							\end{matrix}
+							\right|e^{-\sum_{i=1}^N|z_i|^2/4l_B^2}\\
+							&=\prod_{i< j}(z_i-z_j)e^{-\sum_{i=1}^N|z_i|^2/4l_B^2}\\
+							\end{aligned}\end{equation}
+							This is exactly Lauglin's proposal for the ground state wavefunction when m=1.
+							We see that m=1 Laughlin state does indeed agree with the wavefunction for a completely filled lowest Landau level.
+							
+							<h3>Plasma Analogy</h3>	
+							Laughlin wavefunction
+							\begin{equation} P[z_i] = \prod_{i< j}\frac{|z_i-z_j|^{2m}}{l_B^{2m}}e^{-\sum_i|z_i|^2/2l_B^2} \end{equation}
+							The expectation of the density operator <span>`n(z)`</span> is
+							\begin{equation} \langle \psi|n(z)|\psi\rangle = \frac{\int\prod^N_{i=1}d^2z_in(z)P[z_i]}{\int\prod^N_{i=1}d^2z_i P[z_i]} \end{equation}								
+							it has the same formal structure as the things in classical statistical mechanics, with the denominator interpreted as the partition function
+							\begin{equation} Z=\prod^N_{i=1} d^2z_i P[z_i] \end{equation}
+							Boltzmann distribution function
+							\begin{equation} P[z_i] = e^{-\beta U(z_i)} \end{equation}
+							with
+							\begin{equation} \beta U(z_i) = -2m\sum_{i< j}log\left(\frac{|z_i-z_j|}{l_B} \right) +\frac{1}{2l_B^2}\sum_{i=1}^N|z_i|^2 \end{equation}								
+							If we take <span>`\beta`</span> —— which in statisctical mechanics is  interpreted as inverse temperature —— to take the specific value
+							\begin{equation} \beta = \frac{2}{m} \end{equation}
+							and then
+							\begin{equation} U(z_i) = -m^2\sum_{i< j}log\left(\frac{|z_i-z_j|}{l_B} \right) +\frac{m}{4l_B^2}\sum_{i=1}^N|z_i|^2 \end{equation}			
+							We'll now show that this is the potential energy for a plasma of charged particles.
+							<br/>
+							The first term is the Coulomb potential between two particles in 2D.
+							\begin{equation} \phi_1 = -q log\left(\frac{r}{l_B} \right) \rightarrow -\nabla^2\phi_1 = 2\pi q\delta^2(\mathbf{r}) \end{equation}								
+							Therefore each particles carries charge <span>`q=-m`</span>.
+							<br/>
+							The second term describes a neutralising background of constant charge.
+							\begin{equation} \phi_2 = \frac{|z|^2}{4l_B^2} \rightarrow -\nabla^2\phi_2 = -\frac{1}{l_B^2} \end{equation}
+							which tells us that each electron feels a background charge density
+							\begin{equation} \rho_0 = -\frac{1}{2\pi l_B^2} \end{equation}
+							also
+							\begin{equation} \rho_0 = nq \end{equation}								
+							\begin{equation} n =\frac{1}{2\pi l_B^2 m} = \frac{B}{m\Phi_0} \end{equation}
+							The filling fraction
+							\begin{equation} \nu = \frac{1}{m} \end{equation}
+
+							<h3>Toy Hamiltonians</h3>	
+							It is possible to write down a toy Hamiltonian whose ground state is given by the Laughlin state for two particles.
+							\begin{equation} |M,m\rangle\sim (z_1+z_2)^M(z_1-z_2)^m e^{-(|z_1|^2+|z_2|^2)/4l_B^2} \end{equation}								
+							The eigenvalues of the potential V are given by
+							\begin{equation} v_m = \frac{\langle M,m|V|M,m\rangle}{\langle M,m|M,m\rangle} \end{equation}
+							The wavefunctions <span>`|M,m\rangle `</span> are peaked on a circle of radius <span>`r\approx sqrt{2m}l_B `</span>. 
+							Correspondingly, the eigenvalues are roughly
+							\begin{equation} v_m\approx V(r=\sqrt{2m}l_B) \end{equation}
+							Each of the states <span>`|M,m\rangle`</span> can be thought of as a bound state of two particles, even if the potential is repulsive!
+							This is in stark constrast to quantum mechanics in the absence of a magnetic field where there are only scattering states. 
+							But the magnetic field changes this behaviour!
+							<br/>
+							Given the eigenvalues <span>`v_m`</span>, we can always reconstruct the potential V.
+							In the lowest Landau level, there is no kinetic energy and the potential is the only contribution to the Hamiltonian.
+							\begin{equation} H=\sum_{m'}v_{m'}\mathcal{P}_{m'} \end{equation}								
+							where <span>`\mathcal{P}_m`</span> is the operator which projects onto states in which the two particle have relative angular momentum m.
+							<br/>
+							We can just pick whatever <span>`v_m`</span> we like to design our own Hamiltonians. They may not be very realistic.
+							\begin{equation} v_{m'} = \left\{\begin{matrix}1\qquad m'< m\\ 0 \qquad m'\geq m\end{matrix}
+								\right. \end{equation}
+							This Hamiltonian means that you pay an energy cost if the particles get too close, in other words, the relative angular momentum of the particles dips below <span>`m`</span>.
+							<br/>
+							<br/>
+							We can also use the pseudopotentials to construct Hamiltonian for N particles.
+							The operator <span>`\mathcal{P}_m(ij)`</span> projects the wavefunction onto the state in which the ith and jth particles have relative angular momentum m. We then construct the Hamiltonian as 
+							\begin{equation} H=\sum^\infty_{m'=1}\sum_{i< j}v_{m'}\mathcal{P}_{m'}(ij) \end{equation}	
+							Note <span>`\mathcal{P}_m(ij)`</span> and <span>`\mathcal{P}_m(kj)`</span> do not commute with each other.
+							<br/>
+							you can avoid energy cost by 
+							\begin{equation} \psi(z_i) = s(z_i)\prod_{i< j}(z_i-z_j)^m e^{-\sum_i|z_i|^2/4l_B^2} \end{equation}								
+							where <span>`s(z_i)`</span> can be any symmetric polynomial in the <span>`z_i`</span> to preserve the statistics of the particles. All such wavefunctions have the vanishing energy.
+							All such wavefunctions have the vanishing energy.
+							<br/>
+							So far we doesn't pick out the Laughlin state, which has s(z_i) = 1, as the ground state.
+							If we also add a confining potential to the system, the Laughlin wavefunction will be the ground state.
+							\begin{equation} H = \sum^{m-1}_{m'=1}\sum_{i< j}P_{m'}(ij)+\omega J \end{equation}
+							where operator <span>`J`</span> is the total angular momentum.
+							The Laughlin wavefunction has the lowest energy
+							\begin{equation} E_0 = \frac{1}{2}\omega mN(N-1) \end{equation}
+							Any wavefuntion with <span>`s(z_i)\neq 1`</span> has spatial extent larger(radius larger) than the ground state, and so cost extra energy due to the second term.
+							Any wavefuntion with spatial extent smaller than the Laughlin wavefuntion necessarily has a pair of particles with relative angular momentum less than m and so pays an energy cost due to the first term.
+							
+							<h3>Quasi-Holes and Quasi-Particles</h3>	
+							So far, we've only discussed the ground state of the <span>`\nu=1/m`</span> quantum Hall systems.
+							Now we return to their excitations. There are two types of charged excitations, known as quasi-holes and quasi-particles.
+							<h4>Quasi-Holes</h4>	
+							The wavefunction describing a quasi-hole at position <span>`\eta\in\mathbf{C}`</span> is
+							\begin{equation} \psi_{hole}(z;\eta)=\prod^N_{i=1}(z_i-\eta)\prod_{k< l}(z_k-z_l)^m e^{-\sum_{i=1}^n|z_i|^2/4l_B^2} \end{equation}	
+							We see that the electron density now vanishes at the point <span>`\eta`</span>. In other words, we have created a "hole" in the electron fluid.							
+							\begin{equation}  \end{equation}
+							\begin{equation}  \end{equation}	
+							\begin{equation}  \end{equation}								
+							\begin{equation}  \end{equation}
 							\begin{equation}  \end{equation}
 							\begin{equation}  \end{equation}								
 							\begin{equation}  \end{equation}
