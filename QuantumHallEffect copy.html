@@ -243,11 +243,16 @@
 								\begin{equation} H=H_0+\Delta H \end{equation}
 								where 
 								\begin{equation} \Delta H=-\mathbf{J}\cdot\mathbf{A} \end{equation}
-								As the form of <span>`\Delta H`</span>, we can see the Hamiltonian while no perturbation.
-								\begin{equation} H = \frac{1}{2m}\mathbf{p}^2 = \frac{1}{2}m\dot{\mathbf{x}}^2 \end{equation}
-								and the Hamiltonian with a perturbation <span>`\mathbf{A}`</span>
-								\begin{equation} H = \frac{1}{2m}(\mathbf{p}+e\mathbf{A})^2 = \frac{1}{2m}(m\dot{\mathbf{x}}+e\mathbf{A})^2 = \frac{1}{2}m\dot{\mathbf{x}}^2 + e\dot{\mathbf{x}}\cdot\mathbf{A} \end{equation}
-								Applying an electric field <span>`\mathbf{E}(t) = \mathbf{E}e^{-i\omega t}`</span>
+								As the form of <span>`\Delta H`</span>, 
+								\begin{equation} \begin{aligned}
+								H_{int} & = \frac{1}{2m}\left(\mathbf{p}+e\mathbf{A}\right) - e\Phi - \frac{\mathbf{p}^2}{2m} \\
+								& \approx \frac{e}{2m}\left(\mathbf{A}\cdot \mathbf{p}+\mathbf{p}\cdot \mathbf{A}\right)\\
+								& \approx \frac{e}{m}\mathbf{A}\cdot \mathbf{p}
+								\end{aligned}\end{equation}
+								for cononical case, <span>`p=m\dot{\mathbf{x}}`</span>, when no electromagnetic field is presented.
+								and we have
+								\begin{equation} \Delta H = -\mathbf{J}\cdot\mathbf{A} \end{equation}
+								applying an electric field <span>`\mathbf{E}(t) = \mathbf{E}e^{-i\omega t}`</span>
 								\begin{equation} \mathbf{A} = \frac{\mathbf{E}}{i\omega}e^{-i\omega t} \end{equation}
 								we work in the interaction picture.
 								<br/>
@@ -689,24 +694,26 @@
 							We see that m=1 Laughlin state does indeed agree with the wavefunction for a completely filled lowest Landau level.
 							
 							<h3>Plasma Analogy</h3>	
-							Laughlin wavefunction
-							\begin{equation} P[z_i] = \prod_{i< j}\frac{|z_i-z_j|^{2m}}{l_B^{2m}}e^{-\sum_i|z_i|^2/2l_B^2} \end{equation}
+							
 							The expectation of the density operator <span>`n(z)`</span> is
 							\begin{equation} \langle \psi|n(z)|\psi\rangle = \frac{\int\prod^N_{i=1}d^2z_in(z)P[z_i]}{\int\prod^N_{i=1}d^2z_i P[z_i]} \end{equation}								
+							with
+							\begin{equation} P[z_i] = \prod_{i< j}|z_i-z_j|^{2m}e^{-\sum_i|z_i|^2/2l_B^2} \end{equation}
+							
 							it has the same formal structure as the things in classical statistical mechanics, with the denominator interpreted as the partition function
 							\begin{equation} Z=\prod^N_{i=1} d^2z_i P[z_i] \end{equation}
 							Boltzmann distribution function
 							\begin{equation} P[z_i] = e^{-\beta U(z_i)} \end{equation}
 							with
-							\begin{equation} \beta U(z_i) = -2m\sum_{i< j}log\left(\frac{|z_i-z_j|}{l_B} \right) +\frac{1}{2l_B^2}\sum_{i=1}^N|z_i|^2 \end{equation}								
+							\begin{equation} \beta U(z_i) = -2m\sum_{i< j}log|z_i-z_j| +\frac{1}{2l_B^2}\sum_{i=1}^N|z_i|^2 \end{equation}								
 							If we take <span>`\beta`</span> —— which in statisctical mechanics is  interpreted as inverse temperature —— to take the specific value
 							\begin{equation} \beta = \frac{2}{m} \end{equation}
 							and then
-							\begin{equation} U(z_i) = -m^2\sum_{i< j}log\left(\frac{|z_i-z_j|}{l_B} \right) +\frac{m}{4l_B^2}\sum_{i=1}^N|z_i|^2 \end{equation}			
+							\begin{equation} U(z_i) = -m^2\sum_{i< j}log|z_i-z_j| +\frac{m}{4l_B^2}\sum_{i=1}^N|z_i|^2 \end{equation}			
 							We'll now show that this is the potential energy for a plasma of charged particles.
 							<br/>
 							The first term is the Coulomb potential between two particles in 2D.
-							\begin{equation} \phi_1 = -q log\left(\frac{r}{l_B} \right) \rightarrow -\nabla^2\phi_1 = 2\pi q\delta^2(\mathbf{r}) \end{equation}								
+							\begin{equation} \phi_1 = -q log\left(r\right) \rightarrow -\nabla^2\phi_1 = 2\pi q\delta^2(\mathbf{r}) \end{equation}								
 							Therefore each particles carries charge <span>`q=-m`</span>.
 							<br/>
 							The second term describes a neutralising background of constant charge.
@@ -769,7 +776,7 @@
 							\begin{equation} \psi_{hole}(z;\eta)=\prod^N_{i=1}(z_i-\eta)\prod_{k< l}(z_k-z_l)^m e^{-\sum_{i=1}^n|z_i|^2/4l_B^2} \end{equation}	
 							We see that the electron density now vanishes at the point <span>`\eta`</span>. In other words, we have created a "hole" in the electron fluid.							
 							We can make exactly the same argument in the context of the plasma anology for the quasi-hole wavefunction.
-							\begin{equation} U(z_i) = -m^2\sum_{i< j}log\left(\frac{|z_i-z_j|}{l_B}\right)-m\sum_i log\left(\frac{|z_i-\eta|}{l_B}\right) +\frac{m}{4l_B^2}\sum_{i=1}^N|z_i|^2 \end{equation}
+							\begin{equation} U(z_i) = -m^2\sum_{i< j}log|z_i-z_j|-m\sum_i log|z_i-\eta| +\frac{m}{4l_B^2}\sum_{i=1}^N|z_i|^2 \end{equation}
 							This extra term looks like an impurity in the plasma with charge q=1 (which is -1/m the charge of the electron). The particles in the plasma are expected to swarm around and screen this impurity.
 							The existence of fractional charge is very striking.
 							<h4>Quasi-Particles</h4>	
@@ -785,21 +792,103 @@
 							\begin{equation} \psi_m\sim z^m e^{-|z|^2/4l_B^2} = e^{im\phi} r^m e^{-r^2/4l_B^2} \end{equation}								
 							we see that if we increase the flux from <span>`\Phi=0`</span> to <span>`\Phi=\Phi_0`</span>, the wavefunctions shift from m to m+1.
 							\begin{equation} \psi_m(\Phi=0)\rightarrow \psi_m(\Phi=\Phi_0) = \psi_{m+1}(\Phi=0) \end{equation}
-							In this case, it's achieved by multiplying the wavefunction by the factor <span>`\prod_i z_i`</span>
-							\begin{equation} \psi(z_i)\sim \prod_{k< l}(z_k-z_l)^m e^{-\sum^n_{i=1}|z_i|^2/4l_B^2) \end{equation}
+							In this case, it's achieved by multiplying the wavefunction by the factor <span>`\prod_i z_i`</span>.
+							\begin{equation} \psi(z_i)\sim \prod_{k< l}(z_k-z_l)^m  e^{-\sum^n_{i=1}|z_i|^2/4l_B^2} \end{equation}
+							屌！不会:)
 							
+							<h3>Introducing Anyons</h3>	
+							<h4>The braid group</h4>
+							Suppose that we have n identical particles sitting along a line. We ordered them 1,2,3,...,n.
+							We can generate all elements of the braid group form a simple set of operations, <span>`R_1`</span>, <span>`R_2`</span>, ... ,<span>`R_{n-1}`</span> where <span>`R_i`</span> exchange the <span>`i^{th}`</span> and <span>`(i+1)^{th}`</span> particle in an anti-clockwise direction.
+							The defining relations obeyed by these generator are
+							\begin{equation} R_iR_j=R_jR_i |i-j|>2 \end{equation}	
+							together with the Yang-Baxter relation,
+							\begin{equation} R_iR_{i+1}R_i = R_{i+1}R_iR_{i+1}\qquad i=1,...,n-1 \end{equation}	
+							The kind of anyons that we described above form a one-dimensional representation of the braid group in which each exchange just gives a phase
+							\begin{equation} R_i=e^{i\pi\alpha_i} \end{equation}								
+							The Yang-Baxter equation then requires
+							\begin{equation} e^{i\pi\alpha_i} = e^{i\pi\alpha_{i+1}} \end{equation}
+							which tells us that all identical particles must have the same phase.
+							<h4>Fractional Statistics</h4>
+							We will now compute the quantum statistics of quasi-holes in the <span>`\nu = 1/m`</span> Laughlin state.
+							We consider a state of M quasi-holes which we denote as <span>`|\eta_1,...,\eta_M\rangle`</span>. The wave-function is
+							\begin{equation} \langle z,\overline{z} | \eta_1,...,\eta_M\rangle = \prod^M_{j=1} \prod^N_{i=1} (z_i-\eta_j) \prod_{k < l}(z_k-z_l)^m e^{-\sum^N_{i=1}|z_i|^2/4l_B^2} \end{equation}
+							normalised states
+							\begin{equation} |\psi\rangle = \frac{1}{\sqrt{Z}} |\eta_1,...,\eta_M\rangle \end{equation}								
+							the normalised factor
+							\begin{equation} Z =\langle \eta_1,...,\eta_M|\eta_1,...,\eta_M\rangle= \int\prod d^2z_i exp\left( \sum_{i,j}log|z_i-\eta_j|^2+m\sum_{k< l}log|z_k-z_l|^2-\frac{1}{2l_B^2} \sum_i|z_i|^2 \right) \end{equation}
+							The holomorphic Berry connection is
+							\begin{equation} \mathcal{A}_{\eta_i}(\eta_i,\overline{\eta}_i) = -i\langle\psi|\frac{\partial}{\partial\eta}|\psi\rangle = \frac{i}{2Z}\frac{\partial Z}{\partial \eta}-\frac{i}{Z}\langle\eta|\frac{\partial}{\partial\eta}|\eta\rangle \end{equation}	
+							\begin{equation} \frac{\partial Z}{\partial \eta} = \frac{\partial}{\partial\eta}\langle\eta|\eta\rangle = \left(\frac{\partial}{\partial\eta}\langle\eta|\right)|\eta\rangle + \langle\eta|\left(\frac{\partial}{\partial\eta}|\eta\rangle\right) = 0|\eta\rangle +\langle\eta|\frac{\partial}{\partial \eta}|\eta\rangle = \langle\eta|\frac{\partial}{\partial \eta}|\eta\rangle\end{equation}	
+							\begin{equation} \mathcal{A}_\eta(\eta,\overline{\eta}) = -\frac{i}{2}\frac{\partial lnZ}{\partial\eta} \end{equation}								
+							\begin{equation} \mathcal{A}_\overline{\eta}(\eta,\overline{\eta}) = \frac{i}{2}\frac{\partial lnZ}{\partial\overline{\eta}} \end{equation}								
+							Whenever such screening occurs, the impurities are effectively hidden at distances much greater than Debye length <span>`\lambda`</span>.
+							This means that the free energy of the plasma is independent of the positions of the impurities, at least up to exponentially small corrections.
+
+							The plasma potential energy for the plasma with M purities should be
+							\begin{equation} U(z_k;\eta_i) = -m^2\sum_{k< l}log|z_k-z_l| - m\sum_{k,i}log|z_k-\eta_i| - \sum_{i< j}log|\eta_i-\eta_j| + \frac{m}{4l_B^2}\sum^N_{k=1}|z_k|^2 + \frac{1}{4l_B^2}\sum^M_{i=1}|\eta_i|^2 \end{equation}
+							The plasma partition function is then
+							\begin{equation} \int\prod d^2z_i e^{-\beta U(z_i)} = exp\left(-\frac{1}{m} \sum_{i< j}log|\eta_i-\eta_j| + \frac{1}{4l_B^2}\sum^M_{i=1}|\eta_i|^2 \right)Z \end{equation}
+							Since the free energy of the plasma is independent of the positions of the impurities <span>`\mu_i`</span>.
+							\begin{equation} Z = C(z_1,...,z_n)exp\left(\frac{1}{m}\sum_{i< j}log|\eta_i-\eta_j|^2 - \frac{1}{2ml_B^2}\sum_i|\eta_i|^2 \right) \end{equation}								
+							Berry connections
+							\begin{equation} \mathcal{A}_{\eta_i} = -\frac{i}{2m}\sum_{j\neq i}\frac{1}{\eta_i-\eta_j}+\frac{i\overline{\eta}_i}{4ml_B^2} \end{equation}
+							\begin{equation} \mathcal{A}_{\overline{\eta}_i} = +\frac{i}{2m}\sum_{j\neq i}\frac{1}{\overline{\eta}_i-\overline{\eta}_j}-\frac{i\eta_i}{4ml_B^2} \end{equation}
 							
+							If we choose a path which does not enclose any of the other anyons.
+							\begin{equation} e^{i\gamma} = exp\left(-i\oint_C\mathcal{A}_\eta d\eta + \mathcal{A}_\overline{\eta} d\overline{\eta} \right)  = e^{\frac{ie\Phi}{m\hbar}}\end{equation}
+							It's simply the Aharonov-Bohm phase picked up by the particle. And a particle of charge <span>`e^*`</span> will pick up phase
+							\begin{equation} \gamma = \frac{e^*\Phi}{\hbar} \end{equation}
+							So we learn that the charge of the particle is indeed
+							\begin{equation} e^* = \frac{e}{m} \end{equation}
+							
+							If we choose a path which encloses one other quasi-hole, which we take to be <span>`\eta_2`</span>
+							\begin{equation} e^{i\gamma} = exp\left( -\frac{1}{2m}\oint_C \frac{d\eta_1}{\eta_1-\eta_2} + h.c. \right) = e^{2\pi i/m} \end{equation}								
+							We define that after an anti-clockwise exchange, the wavefunction is
+							\begin{equation} \psi(\mathbf{r}_1,\mathbf{r}_2) = e^{i\pi\alpha}\psi(\mathbf{r}_2,\mathbf{r}_1) \end{equation}
+							\begin{equation} \alpha = \frac{1}{m} \end{equation}
+							So if we rotate by 360 degrees, it should be
+							\begin{equation} e^{2\pi i\alpha} = e^{2\pi i/m} \end{equation}
+							\begin{equation} \alpha = \frac{1}{m} \end{equation}
+							
+							<h4>Ground State Degeneracy and Topological Order</h4>
+							<span>`T_1T_2T_1^{-1}T_2^{-1}`</span> is equivalent to taking one anyon around another. This means
+							\begin{equation} T_1T_2=e^{2\pi i/m}T_2T_1 \end{equation}
+							But such an algebra of operators can't be realised on a single vacuum state.
+							The smallest representation is								
+							\begin{equation} T_1|n\rangle = e^{i\pi ni/m}|n\rangle \end{equation}
+							\begin{equation} T_2|n\rangle = |n+1\rangle \end{equation}
+							
+							<h4>Composite electron</h4>
+							Laughlin states
+							\begin{equation} \widetilde{\psi} \sim \prod_{i < j}(z_i-z_j)^m \end{equation}
+							What would a Laughlin state look like for anyons with position <span>`\eta_i`</span> and statistical parameter <span>`\alpha`</span>?
+							\begin{equation} \widetilde{\psi} \sim \prod^N_{i < j}(\eta_i-\eta_j)^{2p+\alpha} \end{equation}
+							with p a positive integer. As we've seen, above the <span>`\nu=1/m`</span>.
+							The angular momentum of the quasi-excitation is <span>`N(2p\pm\frac{1}{m})`</span>.
+							the area of the quasi-particle is
+							\begin{equation} A\approx 2\pi(2p\pm\frac{1}{m})N(ml_B^2) \end{equation}								
+							where the usual magnetic length <span>`l_B^2 = \hbar /eB`</span> is replaced by <span>`ml_B^2`</span>, because the charge of the quasi-excitations is <span>`q=\pm e/m`</span>.
+							The number of electron states in a full Landau level is <span>`AB/\Phi_0`</span>. 
+							each electron states can be thought of as made of m quasi-particle. So the total number of quasi-thing states in a full Landau level is
+							\begin{equation} mAB/\Phi_0 = (2p\pm\frac{1}{m})m^2N \end{equation}
+							So quasi-holes or quasi-particles give a contribution to the filling factor
+							\begin{equation} \nu_{quasi} = \mp\frac{1}{2pm^2\pm m} = \frac{1}{m\pm\frac{1}{2p}} \end{equation}	
+							Introducing the idea of a vortex. The quasi-hole wavefunction includes the factor
+							\begin{equation} \prod_i(z_i-\eta) \end{equation}
+							The phase of the wavefunction winds once as the position of any particle moves around <span>`\eta`</span>. This is the vortex.
+							Let's turn to the Laughlin wavefunction itself
+							\begin{equation} \widetilde{\psi}_m(z)\sim\prod_{i < j}(z_i-z_j)^m \end{equation}								
+							Each particle can be thought of as m vortices.  Motivated by this observation, we define a composite fermion to be an electron bound to m-1 vortives. 
+							If we move the composite fermion along a path encircling an area A. The resulting Berry phase has two contributions,
+							\begin{equation} \gamma = 2\pi\left(\frac{AB}{\Phi_0}-(m-1)nA \right) \end{equation}
+							The first term is the usual Aharonov-Bohm phase due to the total flux inside the electron path. The second term is the contribution from the electron encircling the vortices: these are m-1 such vortices attached to each of the electron.
+							(When we discussed quasi-holes, we also found a different Aharonov-Bohm phase. In that context, we interpreted this as a different charge of quasi-particles.)
 							\begin{equation}  \end{equation}	
-							\begin{equation}  \end{equation}	
+							\begin{equation}  \end{equation}
 							\begin{equation}  \end{equation}								
 							\begin{equation}  \end{equation}
-							\begin{equation}  \end{equation}
-							\begin{equation}  \end{equation}								
-							\begin{equation}  \end{equation}
 							\begin{equation}  \end{equation}	
-							\begin{equation}  \end{equation}	
-							\begin{equation}  \end{equation}								
-							\begin{equation}  \end{equation}
 							\begin{equation}  \end{equation}
 							\begin{equation}  \end{equation}								
 							\begin{equation}  \end{equation}
